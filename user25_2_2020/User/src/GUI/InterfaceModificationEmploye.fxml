@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #333333;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.InterfaceModificationEmployeController">
+    <stylesheets>
+        <URL value="@interfacemodificationemploye.css" />
+    </stylesheets>
+   <children>
+      <VBox layoutY="1.0" prefHeight="720.0" prefWidth="240.0" style="-fx-background-color: #333333;">
+         <children>
+            <Label prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #4287f5;" text="Interface Employé" textFill="WHITE">
+               <font>
+                  <Font name="NeoSansLightTR-Light" size="31.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="image" fitHeight="113.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </ImageView>
+            <HBox fx:id="gestionCompte" onMouseClicked="#gesionCompte" prefHeight="11.0" prefWidth="228.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="USER" size="1.5em" wrappingWidth="21.83203125" />
+                  <Label prefHeight="21.0" prefWidth="240.0" text="Gestion du compte" textFill="#7c8184">
+                     <font>
+                        <Font name="NeoSansLightTR-Light" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="gestionEnfants" onMouseClicked="#gestionEnfants" prefHeight="11.0" prefWidth="228.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="USERS" size="1.5em" wrappingWidth="21.83203125" />
+                  <Label prefHeight="21.0" prefWidth="240.0" text="Gestion des enfants" textFill="#7c8184">
+                     <font>
+                        <Font name="NeoSansLightTR-Light" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="cantine" onMouseClicked="#cantine" prefHeight="11.0" prefWidth="228.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="CUTLERY" size="1.5em" wrappingWidth="21.83203125" />
+                  <Label prefHeight="21.0" prefWidth="240.0" text="Cantine" textFill="#7c8184">
+                     <font>
+                        <Font name="NeoSansLightTR-Light" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="evenements" onMouseClicked="#Evenement" prefHeight="11.0" prefWidth="228.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="CALENDAR" size="1.5em" wrappingWidth="21.83203125" />
+                  <Label prefHeight="21.0" prefWidth="240.0" text="Evenements" textFill="#7c8184">
+                     <font>
+                        <Font name="NeoSansLightTR-Light" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="SignOut" onMouseClicked="#SignOut" prefHeight="11.0" prefWidth="228.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="SIGN_OUT" size="1.5em" wrappingWidth="21.83203125" />
+                  <Label prefHeight="21.0" prefWidth="240.0" text="SignOut" textFill="#7c8184">
+                     <font>
+                        <Font name="NeoSansLightTR-Light" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+      <JFXTextField fx:id="prenom" layoutX="507.0" layoutY="74.0" prefHeight="31.0" prefWidth="266.0" promptText="Prenom" style="-fx-text-fill: #ffffff;" />
+      <Label layoutX="283.0" layoutY="79.0" text="Prenom" textFill="#dddddd" />
+      <JFXTextField fx:id="nom" layoutX="507.0" layoutY="133.0" prefHeight="31.0" prefWidth="266.0" promptText="Nom" style="-fx-text-fill: #ffffff;" />
+      <Label layoutX="283.0" layoutY="138.0" text="Nom" textFill="#dddddd" />
+      <JFXTextField fx:id="email" layoutX="507.0" layoutY="187.0" prefHeight="31.0" prefWidth="266.0" promptText="Email" style="-fx-text-fill: #ffffff;" />
+      <Label layoutX="283.0" layoutY="192.0" text="Email" textFill="#dddddd" />
+      <JFXPasswordField fx:id="mdp" layoutX="507.0" layoutY="248.0" prefHeight="31.0" prefWidth="266.0" promptText="Mot de passe" style="-fx-text-fill: #ffffff;" />
+      <Label layoutX="284.0" layoutY="253.0" text="Mot de passe" textFill="#dddddd" />
+      <JFXPasswordField fx:id="mdpc" layoutX="507.0" layoutY="300.0" prefHeight="31.0" prefWidth="266.0" promptText="Confirmer Mot de passe" style="-fx-text-fill: #ffffff;" />
+      <Label layoutX="282.0" layoutY="305.0" text="Confirmer Mot de passe" textFill="#dddddd" />
+      <JFXTextField fx:id="numTel" layoutX="507.0" layoutY="351.0" prefHeight="31.0" prefWidth="266.0" promptText="Num Tel" style="-fx-text-fill: #ffffff;" />
+      <Label layoutX="282.0" layoutY="356.0" text="Num Tel" textFill="#dddddd" />
+      <ComboBox fx:id="region" layoutX="507.0" layoutY="398.0" prefHeight="31.0" prefWidth="266.0" style="-fx-background-color: #555555; -fx-text-fill: #ffffff;" />
+      <Label layoutX="282.0" layoutY="403.0" text="Ragion" textFill="#dddddd" />
+      <JFXTextField fx:id="ville" layoutX="507.0" layoutY="449.0" prefHeight="31.0" prefWidth="266.0" promptText="Ville" style="-fx-text-fill: #ffffff;" />
+      <Label layoutX="285.0" layoutY="454.0" text="Ville" textFill="#dddddd" />
+      <JFXTextField fx:id="rue" layoutX="507.0" layoutY="504.0" prefHeight="31.0" prefWidth="266.0" promptText="Rue" style="-fx-text-fill: #ffffff;" />
+      <Label layoutX="285.0" layoutY="509.0" text="Rue" textFill="#dddddd" />
+      <JFXTextField fx:id="codePostal" layoutX="507.0" layoutY="561.0" prefHeight="31.0" prefWidth="266.0" promptText="Code Postal" style="-fx-text-fill: #ffffff;" />
+      <Label layoutX="285.0" layoutY="566.0" text="Code Postal" textFill="#dddddd" />
+      <Label layoutX="284.0" layoutY="622.0" text="Image" textFill="#dddddd" />
+      <JFXButton fx:id="image1" layoutX="507.0" layoutY="617.0" onAction="#choisirImage" style="-fx-background-color: #5f5f5f5f;" text="Selectionner" textFill="#dddddd" />
+      <JFXButton fx:id="imageN" layoutX="640.0" layoutY="617.0" onAction="#PrendreImage" style="-fx-background-color: #5f5f5f5f;" text="Prendre une image" textFill="#dddddd" />
+      <JFXTextField fx:id="salaire" layoutX="975.0" layoutY="90.0" prefHeight="31.0" prefWidth="65.0" promptText="Salaire" style="-fx-text-fill: #ffffff;" />
+      <Label layoutX="850.0" layoutY="95.0" text="Salaire" textFill="#dddddd" />
+      <JFXTextField fx:id="heure" layoutX="975.0" layoutY="164.0" prefHeight="31.0" prefWidth="65.0" promptText="Nb heures" style="-fx-text-fill: #ffffff;" />
+      <Label layoutX="850.0" layoutY="169.0" text="Nb heures" textFill="#dddddd" />
+      <Label layoutX="850.0" layoutY="274.0" text="Date de naissance" textFill="#dddddd" />
+      <JFXDatePicker fx:id="date" defaultColor="#4059a9" layoutX="850.0" layoutY="311.0" style="-fx-text-fill: #ffffff; -fx-background-color: #666666;" />
+      <JFXButton fx:id="Ajouter" layoutX="906.0" layoutY="617.0" onAction="#Ajouter" style="-fx-background-color: #444444;" text="Ajouter" textFill="WHITE" />
+      <ComboBox fx:id="type" layoutX="850.0" layoutY="409.0" prefHeight="31.0" prefWidth="206.0" style="-fx-background-color: #555555;" />
+      <Label layoutX="846.0" layoutY="367.0" text="Type" textFill="#dddddd" />
+   </children>
+</AnchorPane>
