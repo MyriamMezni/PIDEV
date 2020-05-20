@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #dbd5ce;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MotDePasseOublieController">
+    <stylesheets>
+        <URL value="@motdepasseoublie.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane layoutX="264.0" layoutY="77.0" prefHeight="583.0" prefWidth="552.0" style="-fx-background-color: #edb27e;">
+         <children>
+            <JFXButton fx:id="RecupererMDP" layoutX="186.0" layoutY="425.0" onAction="#RecupererMDP" style="-fx-background-color: #f8521b;" text="Recuperer mot de passe" textFill="WHITE" />
+            <JFXTextField fx:id="Email" focusColor="#e55343" layoutX="192.0" layoutY="251.0" promptText="Email" />
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="Retour" layoutX="966.0" layoutY="46.0" onAction="#Retour" style="-fx-background-color: #f8521b;" text="Retour" textFill="WHITE" />
+   </children>
+</AnchorPane>

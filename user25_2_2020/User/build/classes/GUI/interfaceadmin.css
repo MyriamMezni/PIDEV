@@ -1,0 +1,15 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+.btns
+{
+    -fx-background-color:transparent;
+}
+.btns:hover
+{
+    -fx-background-color:#222222;
+}

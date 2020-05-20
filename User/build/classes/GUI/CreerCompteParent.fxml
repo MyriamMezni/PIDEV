@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CreerCompteParentController">
+
+   <children>
+      <AnchorPane layoutX="513.0" layoutY="39.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="668.0" prefWidth="540.0" style="-fx-background-color: #3f4f4f4f;">
+         <children>
+            <JFXTextField fx:id="prenom" layoutX="250.0" layoutY="21.0" prefHeight="31.0" prefWidth="266.0" promptText="Prenom" style="-fx-text-fill: #ffffff;" />
+            <Label layoutX="26.0" layoutY="26.0" text="Prenom" textFill="#dddddd" />
+            <JFXTextField fx:id="nom" layoutX="250.0" layoutY="80.0" prefHeight="31.0" prefWidth="266.0" promptText="Nom" style="-fx-text-fill: #ffffff;" />
+            <Label layoutX="26.0" layoutY="85.0" text="Nom" textFill="#dddddd" />
+            <JFXTextField fx:id="email" layoutX="250.0" layoutY="134.0" prefHeight="31.0" prefWidth="266.0" promptText="Email" style="-fx-text-fill: #ffffff;" />
+            <Label layoutX="26.0" layoutY="139.0" text="Email" textFill="#dddddd" />
+            <JFXPasswordField fx:id="mdp" layoutX="250.0" layoutY="195.0" prefHeight="31.0" prefWidth="266.0" promptText="Mot de passe" style="-fx-text-fill: #ffffff;" />
+            <Label layoutX="27.0" layoutY="200.0" text="Mot de passe" textFill="#dddddd" />
+            <JFXPasswordField fx:id="mdpc" layoutX="250.0" layoutY="247.0" prefHeight="31.0" prefWidth="266.0" promptText="Confirmer Mot de passe" style="-fx-text-fill: #ffffff;" />
+            <Label layoutX="25.0" layoutY="252.0" text="Confirmer Mot de passe" textFill="#dddddd" />
+            <JFXTextField fx:id="numTel" layoutX="250.0" layoutY="298.0" prefHeight="31.0" prefWidth="266.0" promptText="Num Tel" style="-fx-text-fill: #ffffff;" />
+            <Label layoutX="25.0" layoutY="303.0" text="Num Tel" textFill="#dddddd" />
+            <ComboBox fx:id="region" layoutX="250.0" layoutY="345.0" prefHeight="31.0" prefWidth="266.0" style="-fx-background-color: #555555; -fx-text-fill: #ffffff;" />
+            <Label layoutX="25.0" layoutY="350.0" text="Ragion" textFill="#dddddd" />
+            <JFXTextField fx:id="ville" layoutX="250.0" layoutY="396.0" prefHeight="31.0" prefWidth="266.0" promptText="Ville" style="-fx-text-fill: #ffffff;" />
+            <Label layoutX="28.0" layoutY="401.0" text="Ville" textFill="#dddddd" />
+            <JFXTextField fx:id="rue" layoutX="250.0" layoutY="451.0" prefHeight="31.0" prefWidth="266.0" promptText="Rue" style="-fx-text-fill: #ffffff;" />
+            <Label layoutX="28.0" layoutY="456.0" text="Rue" textFill="#dddddd" />
+            <JFXTextField fx:id="codePostal" layoutX="250.0" layoutY="508.0" prefHeight="31.0" prefWidth="266.0" promptText="Code Postal" style="-fx-text-fill: #ffffff;" />
+            <Label layoutX="28.0" layoutY="513.0" text="Code Postal" textFill="#dddddd" />
+            <Label layoutX="27.0" layoutY="569.0" text="Image" textFill="#dddddd" />
+            <JFXButton fx:id="image" layoutX="250.0" layoutY="564.0" onAction="#choisirImage" style="-fx-background-color: #5f5f5f5f;" text="Selectionner" textFill="#dddddd" />
+            <JFXButton fx:id="imageN" layoutX="383.0" layoutY="564.0" onAction="#PrendreImage" style="-fx-background-color: #5f5f5f5f;" text="Prendre une image" textFill="#dddddd" />
+            <JFXButton fx:id="valider" layoutX="176.0" layoutY="616.0" onAction="#AjouterParent" prefHeight="31.0" prefWidth="188.0" style="-fx-background-color: #5f5f5f5f;" text="Valider" textFill="#dddddd" />
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="imagepreview" fitHeight="210.0" fitWidth="353.0" layoutX="73.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="73.0" layoutY="77.0" prefHeight="94.0" prefWidth="390.0" text="Rejoindre l'espace parent" textFill="#4059a9">
+         <font>
+            <Font name="NeoSansLightTR-Light" size="37.0" />
+         </font>
+      </Label>
+      <Text fill="#d7d0d0" layoutX="73.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Creer un compte pour rejoindre votre espace dedie pour gerer vos enfant inscrit" wrappingWidth="343.6708984375">
+         <font>
+            <Font name="NeoSansLightTR-Light" size="42.0" />
+         </font>
+      </Text>
+      <Label layoutX="80.0" layoutY="449.0" text="Votre image:" textFill="#4059a9">
+         <font>
+            <Font name="NeoSansLightTR-Light" size="19.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
