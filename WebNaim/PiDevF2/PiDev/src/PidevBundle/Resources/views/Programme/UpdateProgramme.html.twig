@@ -1,0 +1,65 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% extends "Back.html.twig" %}
+
+{% block content %}
+    <html>
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Modifier un Programme</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Programme</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <body>
+    <center>
+
+        <fieldset style="width: 50%">
+            <form method="POST">
+                cours : <input class='form-control' type="file" name="cours" value="{{ Programmes.cours  }}">
+                </br>
+                debut :<select  class='form-control' type="text" name="debut" value="{{ Programmes.debut }} ">
+                    <option value="Janvier">Janvier</option>
+                    <option value="Fevrier">Fevrier</option>
+                    <option value="Mars">Mars</option>
+
+                </select class='form-control' >
+                </br>
+                fin :<select  class='form-control' type="text" name="fin" value="{{ Programmes.fin }} ">
+                    <option value="Janvier">Janvier</option>
+                    <option value="Fevrier">Fevrier</option>
+                    <option value="Mars">Mars</option>
+
+                </select class='form-control' >
+                </br>
+
+
+
+                <input type="submit" value="Enregistrer">
+
+            </form>
+        </fieldset>
+
+    </center>
+    </body>
+    </html>
+{% endblock %}

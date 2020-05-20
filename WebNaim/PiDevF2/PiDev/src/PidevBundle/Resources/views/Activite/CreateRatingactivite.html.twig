@@ -1,0 +1,38 @@
+
+
+
+{% extends "Front.html.twig" %}
+
+{% block content %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
+        <div class="package text-center bg-white">
+
+
+
+        {{  form_start(form) }}
+                Vous êtes entrain de noter l'activite:
+{{ intitule|upper }}
+        {{ form_widget(form.intitule) }}
+        {{ form_widget(form.rate) }}
+        {{ form_widget(form.Ajouter,{'attr':{'class':'btn btn-primary btn-custom-1 mt-4'} } ) }}
+        {{ form_end(form) }}
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

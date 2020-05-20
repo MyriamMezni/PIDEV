@@ -1,0 +1,15 @@
+{% extends "Back.html.twig" %}
+{% block content %}
+    {{ form_start(form) }}
+
+        <div class="card-body">
+            <div class="form-group">
+                {{ form_label(form.capacite) }}
+                {{ form_widget(form.capacite,{'attr':{'class':'form-control','min':0} }) }}
+            </div>
+        </div>
+        <div class="card-footer">
+            {{ form_widget(form.Valider,{'attr':{'class':'btn btn-primary'} }) }}
+        </div>
+    {{ form_end(form) }}
+{% endblock %}

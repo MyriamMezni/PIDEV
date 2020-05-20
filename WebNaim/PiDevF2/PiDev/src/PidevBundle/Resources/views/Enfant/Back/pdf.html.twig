@@ -1,0 +1,28 @@
+
+
+
+
+
+
+<div class="card">
+
+   {% for entity in enfants %}
+       {% if entity.idEnfant==enfant.idEnfant %}
+           <table  width="1100px;heigth=1100px"cellspacing="5" cellpadding="5"><h1></h1><tr width="400px;heigth=400px"><td><img width="400px;heigth=800px" src="{{rootDir~asset("/web/Images/"~entity.image) }}"></td>
+                 <td></td>  <td width="700px;heigth=700px">
+                      <h1><p style="margin-left: 200px;width: 300px"><b>Nom : </b>{{ entity.nom}}</p></h1>
+                       <h1><p style="margin-left: 200px;width: 300px"><b>Prenom : </b>{{ entity.prenom}}</p></h1>
+                       <h1><p style="margin-left: 200px;width: 300px"><b>date Naissance : </b>{{ entity.datenaissance|date("d/m/Y")}}</p></h1>
+                       <h1><p style="margin-left: 200px;width: 300px"><b>Remarque : </b>{{ entity.remarque}}</p></h1>
+                       <h1><p style="margin-left: 200px;width: 300px"><b>Cantine : </b>{% if enfant.cantine==0 %}  No{% else %} Yes {% endif %}</p></h1>
+
+
+                   </td></tr></table>
+
+
+    {% endif %}
+   {% endfor %}
+
+
+</div>
+

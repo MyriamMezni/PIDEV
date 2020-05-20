@@ -1,0 +1,10 @@
+pidev:
+    resource: "@PidevBundle/Resources/config/routing.yml"
+    prefix:   /Pidev
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

@@ -1,0 +1,163 @@
+
+
+
+
+
+{% extends "Back.html.twig" %}
+
+
+{% block content %}
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Liste des excursion</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Activité</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <table  class="table table-bordered" >
+        <tr>
+
+            <th style="width: 10px" >ID</th>
+            <th style="width: 10px">Capacite</th>
+            <th style="width: 10px">Nom </th>
+            <th style="width: 10px">HeureD</th>
+            <th style="width: 10px">description</th>
+            <th style="width: 10px">dateEvt</th>
+            <th style="width: 10px">image</th>
+            <th style="width: 10px">type </th>
+            <th style="width: 10px">depart</th>
+            <th style="width: 10px">destination</th>
+
+
+        </tr>
+
+        {% for a in Excursion %}
+            {% if a.type == 'Excursion' %}
+                <tr>
+                    <td>{{ a.id }}</td>
+                    <td>{{ a.capacite }}</td>
+                    <td>{{ a.nom }}</td>
+                    <td>{{ a.heured }}</td>
+                    <td>{{ a.description }}</td>
+                    <td>{{ a.dateEvt }}</td>
+                    <td>{{ a.image }}</td>
+                    <td>{{ a.type }}</td>
+                    <td>{{ a.depart }}</td>
+                    <td>{{ a.destination }}</td>
+                    <td><a href="{{ path('DeleteExcursion',{'id':a.id}) }}">Supprimer</a></td>
+                    <td><a href="{{ path('UpdateExcursion',{'id':a.id}) }}">modifier</a></td>
+
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

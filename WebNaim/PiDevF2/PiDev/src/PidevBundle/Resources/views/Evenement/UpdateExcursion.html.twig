@@ -1,0 +1,90 @@
+
+
+
+
+
+
+
+{% extends "Back.html.twig" %}
+
+{% block content %}
+    <html>
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Modifier une excursion</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Excursion</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <body>
+    <center>
+
+
+        <fieldset style="width: 50%">
+            <form method="POST">
+
+                capacite :<select  class='form-control' type="text" name="capacite" value="{{ Excursion.capacite }} ">
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="75">75</option>
+
+                </select class='form-control' >
+                </br>
+                nom : <input class='form-control' type="text" name="nom" value="{{ Excursion.nom  }}">
+                </br>
+                heure debut	: <input class='form-control' type="text" name="heureD" value="{{ Excursion.heureD }}">
+                </br>
+                dateEvt : <input class='form-control' type="date" name="dateEvt" value="{{ Excursion.dateEvt  }}">
+                </br>
+                image : <input class='form-control' type="file" name="image" value="{{ Excursion.image  }}">
+                </br>
+                Type:<select  class='form-control' type="text" name="type" value="{{ Excursion.type }} ">
+                    <option value="Fete">Fete</option>
+
+                </select class='form-control' >
+
+                Depart:<select  class='form-control'  type="text" name="depart" value="{{ Excursion.depart }} ">
+                    <option value="Rades">Rades</option>
+                    <option value="gabes">gabes</option>
+                    <option value="hamammet">hamammet</option>
+                    <option value="Tozeur">Tozeur</option>
+
+
+                </select>
+                </br>
+
+
+
+
+
+
+                Destination:<select   class='form-control'  type="text" name="destination" value="{{ Excursion.destination }} ">
+                    <option value="Rades">Rades</option>
+                    <option value="gabes">Gabes</option>
+                    <option value="hamammet">Hammamet</option>
+                    <option value="Tozeur">Tozeur</option>
+
+
+                </select>
+                </br>
+                <input type="submit" value="Enregistrer">
+
+            </form>
+        </fieldset>
+
+    </center>
+    </body>
+    </html>
+{% endblock %}
+
+
+
+

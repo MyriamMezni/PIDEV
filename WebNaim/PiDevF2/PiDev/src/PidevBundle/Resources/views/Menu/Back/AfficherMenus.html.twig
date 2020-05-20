@@ -1,0 +1,78 @@
+{% extends "Back.html.twig" %}
+{% block content %}
+    <h1>Liste des menus</h1>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th align="center">Nom</th>
+            <th align="center">Description</th>
+            <th align="center">Image</th>
+            <th align="center">Jours de semaines</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for m in menus %}
+            <tr>
+                <td align="center">{{ m.nom }}</td>
+                <td align="center">{{ m.description }}</td>
+                <td align="center">
+                    <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="{{ asset("Images/"~m.image) }}" alt="user image">
+                    </div>
+                </td>
+                <td align="center">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Dimanche</th>
+                            <th>Lundi</th>
+                            <th>Mardi</th>
+                            <th>Mercredi</th>
+                            <th>Jeudi</th>
+                            <th>Vendredi</th>
+                            <th>Samedi</th>
+                        </tr>
+                        </thead>
+                        <thead>
+                        <tr>
+                            <td>
+                                {% if "1" in m.jourDeLaSemaine %}✔{% endif %}
+                            </td>
+                            <td>
+                                {% if "2" in m.jourDeLaSemaine %}✔{% endif %}
+                            </td>
+                            <td>
+                                {% if "3" in m.jourDeLaSemaine %}✔{% endif %}
+                            </td>
+                            <td>
+                                {% if "4" in m.jourDeLaSemaine %}✔{% endif %}
+                            </td>
+                            <td>
+                                {% if "5" in m.jourDeLaSemaine %}✔{% endif %}
+                            </td>
+                            <td>
+                                {% if "6" in m.jourDeLaSemaine %}✔{% endif %}
+                            </td>
+                            <td>
+                                {% if "7" in m.jourDeLaSemaine %}✔{% endif %}
+                            </td>
+                        </tr>
+                        </thead>
+                    </table>
+
+                </td>
+
+                <td align="center"><a href="{{ path('ModifierMenuBack',{'idMenu':m.id}) }}"><i class="fas fa-edit" style="color: #00b44e"></i></a></td>
+                <td align="center"><a href="{{ path('SupprimerMenuBack',{'idMenu':m.id}) }}"><i class="fas fa-trash" style="color: #aa0719"></i></a></td>
+
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+{% endblock %}
