@@ -1,0 +1,67 @@
+{% extends "Front.html.twig" %}
+
+{% block content %}
+
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Listes des activités</title>
+    </head>
+    <body>
+    <center>
+        <h1>Activite : {{ Activites.intitule }}  </h1>
+
+
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <div class="package text-center bg-white">
+                    <span class="img-wrap"> {{ barcode({code: Activites.intitule, type: 'qrcode', format: 'html'}) }}</span>
+                    <h5 class="d-block text-black" >Destiné pour les enfants de:   {{ Activites.Niveau }} </h5>
+                    <h5 class="d-block text-black">Enseigné par Mme/Mr :   {{ Activites.Responsable }} </h5>
+                    <h5 class="d-block text-black">Type : {{ Activites.Type }} </h5>
+                    <h5 class="d-block text-black" > Heure debut : {{ Activites.HeureDebut }} </h5>
+                    <h5 class="d-block text-black" >Heure Fin : {{ Activites.HeureFin }} </h5>
+
+
+                    <a href="{{ path('RatingActiviteFront',{'intitule':Activites.Intitule}) }}" class="btn btn-primary btn-custom-1 mt-4">Noter l'activité</a></p>
+
+            </div>
+
+
+            </table>
+    </center>
+    </body>
+    </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+{% endblock %}

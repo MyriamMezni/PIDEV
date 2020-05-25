@@ -1,0 +1,14 @@
+<h1> {{ title }} </h1>
+{% for a in fete %}
+    <td>{{ a.id }}</td>
+    <td>{{ a.capacite }}</td>
+    <td>{{ a.nom }}</td>
+    <td>{{ a.heured }}</td>
+    <td>{{ a.description }}</td>
+    <td>{{ a.dateEvt }}</td>
+    <td>{{ a.image }}</td>
+    <td>{{ a.type }}</td>
+    <td>{{ a.depart }}</td>
+    <td>{{ a.destination }}</td>
+    <br>
+{% endfor %}

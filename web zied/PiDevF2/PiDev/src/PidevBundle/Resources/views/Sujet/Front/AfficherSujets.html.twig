@@ -1,0 +1,65 @@
+{% extends "Front.html.twig" %}
+{% block cover %}
+    url('{{ asset('front/images/hero_4.jpg') }}')
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <p class="mt-5"><a href="{{ path('Ajout_Sujet_Front') }}" class="btn btn-primary btn-custom-1 mt-4">Reclamer</a></p>
+
+            {% for s in sujets %}
+                <div class="card">
+                    <div class="card-header">
+                        <div class="testimonial-3 d-flex">
+                            <div class="vcard-wrap mr-5">
+                                <img src="{{ asset("Images/"~s.IdUser.image) }}" alt="Image" class="vcard img-fluid">
+                            </div>
+                            <div class="text" >
+                                <h3 style="color: #17a2b8">{{ s.idUser.prenom }} {{ s.idUser.nom }}</h3>
+                                <p class="position" style="color: #17a2b8">{{ s.idUser.role }}</p>
+                            </div>
+                        </div>
+                        <br>
+                        <h3><a href="{{ path('Afficher_Commentaires_Front',{'idSujet':s.id}) }}">[{{ s.categorie }}]{{ s.titre }}</a></h3>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                Crée le {{ s.dateCreation|date('d/m/Y') }} à {{ s.dateCreation|date('H:i') }}
+                            </div>
+                            <div class="col-sm-6"></div>
+                            <div class="col-sm-3">
+                                {% if s.dateModification is  not null %}
+                                    Modifié le {{ s.dateModification|date('d/m/Y') }} à {{ s.dateModification|date('H:i') }}
+
+                                {% endif %}
+                            </div>
+                        </div>
+                        {{ s.description }}
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        {% if app.user is not null %}
+                            {% if app.user.id==s.IdUser.id %}
+                            <span class="float-left">
+                                <a href="{{ path('ModifierSujetFront',{'idSujet':s.id}) }}"><i class="icon-edit" style="color: #00b44e"></i></a>
+                            </span>
+                            {% endif %}
+                        {% endif %}
+                            <span class="float-right">
+                                  <a href="{{ path('Afficher_Commentaires_Front',{'idSujet':s.id}) }}" class="link-black text-sm">
+                                    <i class="icon-comment"></i> Commentaires
+                                  </a>
+                            </span>
+                    </div>
+                    <!-- /.card-footer-->
+                </div>
+                <!-- /.card -->
+                <br>
+            {% else %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

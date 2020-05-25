@@ -1,0 +1,65 @@
+
+{% extends 'back.html.twig' %}
+
+{% block content %}
+
+    {% set flashbag_notices = app.session.flashbag.get('notice') %}
+    {% if flashbag_notices is not empty %}
+        <ul class="center">
+            {% for notice in flashbag_notices %}
+
+                <li>{{ notice }} </li>
+
+            {% endfor %}
+
+        </ul>
+    {% endif %}
+
+
+
+
+    <div classe="formulaire_ajout">
+        <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+            <div class="row">
+                <div class="col-lg-12" style="padding-left: 120px">
+                    <div class="panel panel-default">
+
+                    </br>
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fa fa-align-justify"></i>  valider Inscription
+                            </div>
+                            <div class="col-md-6" style="padding-left: 120px">
+                                {{ form_start(form) }}
+                                <div class="form-group">
+
+                                    <label>Espace de Mail</label>
+                                    {{ form_widget(form.subject,{'attr':{'class':'form-group','style':"width: 500px;",'placeholder':'objet.....'} }) }}
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    {{ form_widget(form.object,{'attr':{'class':'form-group','style':"height: 300px;width: 500px;",'placeholder':'contenu de mail.....'} })}}
+                                    </br>
+                                </div>
+
+
+                            </div>
+
+
+
+                            <div class="form-group" style="padding-left: 120px">
+                                <input type="submit" class="btn btn-primary"  value="Submit"/>
+                            </div>
+
+                            {{form_end(form)  }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!--/.main-->
+    </div>
+{% endblock %}

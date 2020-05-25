@@ -1,0 +1,338 @@
+pidev_homepage:
+    path:     /
+    defaults: { _controller: PidevBundle:Default:index }
+
+Ajout_Sujet_Back:
+    path:     /Back/AjoutSujet
+    defaults: { _controller: PidevBundle:Sujet:AjouterBack }
+
+Afficher_Sujets_Back:
+    path:     /Back/AfficherSujets
+    defaults: { _controller: PidevBundle:Sujet:AfficherBack }
+
+Afficher_Commentaires_Back:
+    path:     /Back/Sujet/{idSujet}
+    defaults: { _controller: PidevBundle:Commentaire:AfficherCommentaireBack }
+
+Afficher_Commentaires_Front:
+    path:     /Front/Sujet/{idSujet}
+    defaults: { _controller: PidevBundle:Commentaire:AfficherCommentairesFront }
+
+Afficher_Sujets_Front:
+    path:     /Front/AfficherSujets
+    defaults: { _controller: PidevBundle:Sujet:AfficherFront }
+
+Ajout_Sujet_Front:
+    path:     /Front/AjoutSujet
+    defaults: { _controller: PidevBundle:Sujet:AjouterFront }
+
+AjoutUser:
+    path:     /AjoutUser/{role}
+    defaults: { _controller: PidevBundle:Registration:registerUser }
+
+back:
+    path:     /Back
+    defaults: { _controller: PidevBundle:Default:back }
+
+front:
+    path:     /Front
+    defaults: { _controller: PidevBundle:Default:front }
+
+redirect:
+    path:     /redirect
+    defaults: { _controller: PidevBundle:Default:redirect }
+
+ModifierSujetFront:
+    path:     /Front/ModiferSujet/{idSujet}
+    defaults: { _controller: PidevBundle:Sujet:ModifierFront }
+
+ModifierSujetBack:
+    path:     /Back/ModiferSujet/{idSujet}
+    defaults: { _controller: PidevBundle:Sujet:ModifierBack }
+
+SupprimerSujetBack:
+    path:     /Back/SupprimerSujet/{idSujet}
+    defaults: { _controller: PidevBundle:Sujet:Supprimer }
+
+AjouterTableBack:
+    path:     /Back/AjouterTable
+    defaults: { _controller: PidevBundle:Table:ajouterTable }
+
+AfficherTablesBack:
+    path:     /Back/AfficherTables
+    defaults: { _controller: PidevBundle:Table:afficherTableBack }
+
+ModifierTableBack:
+    path:     /Back/ModifierTable/{idTable}
+    defaults: { _controller: PidevBundle:Table:modifierTableBack }
+
+SupprimerTableBack:
+    path:     /Back/SupprimerTable/{idTable}
+    defaults: { _controller: PidevBundle:Table:supprimerTable }
+
+
+AjouterChaiseBack:
+    path:     /Back/AjouterChaise
+    defaults: { _controller: PidevBundle:Chaise:ajouterChaise }
+
+AfficherChaisesBack:
+    path:     /Back/AfficherChaises
+    defaults: { _controller: PidevBundle:Chaise:afficherChaisesBack }
+
+ModifierChaiseBack:
+    path:     /Back/ModifierChaise/{idChaise}
+    defaults: { _controller: PidevBundle:Chaise:modifierChaiseBack }
+
+SupprimerChaiseBack:
+    path:     /Back/SupprimerChaise/{idChaise}
+    defaults: { _controller: PidevBundle:Chaise:supprimerChaiseBack }
+
+AjouterMenuBack:
+    path:     /Back/AjouterMenu
+    defaults: { _controller: PidevBundle:Menu:AjouterMenuBack }
+
+AfficherMenusBack:
+    path:     /Back/AfficherMenusBack
+    defaults: { _controller: PidevBundle:Menu:AfficherMenusBack }
+
+ModifierMenuBack:
+  path:     /Back/ModifierMenu/{idMenu}
+  defaults: { _controller: PidevBundle:Menu:ModifierMenuBack }
+
+SupprimerMenuBack:
+    path:     /Back/SupprimerMenu/{idMenu}
+    defaults: { _controller: PidevBundle:Menu:SupprimerMenuBack }
+
+AfficherMenusFront:
+    path:     /Front/AfficherMenus
+    defaults: { _controller: PidevBundle:Menu:AfficherMenusFront }
+
+ReserverMenu:
+    path:     /Front/ReserverMenu/{idmenu}/{jour}
+    defaults: { _controller: PidevBundle:Menu:Reserver }
+
+AjouterACantine:
+    path:     /Front/Cantine
+    defaults: { _controller: PidevBundle:Menu:ajouterACantine }
+
+AfficherCommandes:
+    path:     /Front/Commandes
+    defaults: { _controller: PidevBundle:Menu:afficherCommande }
+
+StatCommandes:
+  path:     /Back/StatMenus
+  defaults: { _controller: PidevBundle:Menu:StatsMenu }
+
+SetSeen:
+  path:     /seen/{notif}
+  defaults: { _controller: PidevBundle:Notification:setSeen }
+
+
+
+ajoutEnfant:
+    path:     /Front/new
+    defaults: { _controller: PidevBundle:Enfant:new }
+
+afficheEnfant:
+    path:     /Back/affiche
+    defaults: { _controller: PidevBundle:Enfant:rechercherEnfant }
+
+updateEnfant:
+    path:     /Back/update/{id}
+    defaults: { _controller: PidevBundle:Enfant:update }
+
+DeleteEnfant:
+    path:     /Back/delete/{id}
+    defaults: { _controller: PidevBundle:Enfant:delete }
+
+ajoutBabysitter:
+  path:     /Back/ajoutBabysitter
+  defaults: { _controller: PidevBundle:Babysitter:new }
+
+afficheBabysitter:
+    path:     /Back/afficheaa
+    defaults: { _controller: PidevBundle:Babysitter:index }
+
+updateBabysitter:
+    path:     /Back/updateBabysitter/{id}
+    defaults: { _controller: PidevBundle:Babysitter:update }
+
+DeleteBabysitter:
+    path:     /Back/DeleteBabysitter/{id}
+    defaults: { _controller: PidevBundle:Babysitter:delete }
+
+mailing:
+  path:     /Back/mailing/{id}
+  defaults: { _controller: PidevBundle:Mail:sendMail }
+
+aaa:
+  path:     /Back/azerty/{id}
+  defaults: { _controller: PidevBundle:Enfant:azerty }
+
+bbb:
+  path:     /Back/pdf/{id}
+  defaults: { _controller: PidevBundle:Enfant:pdf }
+
+ReadActivite:
+    path:     /ReadActivite
+    defaults: { _controller: PidevBundle:Activite:ReadActivite }
+CreateActivite:
+    path:     /CreateActivite
+    defaults: { _controller: PidevBundle:Activite:CreateActivite }
+UpdateActivite:
+    path:     /UpdateActivite/{idactivite}
+    defaults: { _controller: PidevBundle:Activite:UpdateActivite }
+DeleteActivite:
+    path:     /DeleteActivite/{idactivite}
+    defaults: { _controller: PidevBundle:Activite:DeleteActivite }
+ReadProgramme:
+    path:     /ReadProgramme
+    defaults: { _controller: PidevBundle:Programme:ReadProgramme }
+CreateProgramme:
+    path:     /CreateProgramme
+    defaults: { _controller: PidevBundle:Programme:CreateProgramme }
+UpdateProgramme:
+    path:     /UpdateProgramme/{idprogramme}
+    defaults: { _controller: PidevBundle:Programme:UpdateProgramme }
+DeleteProgramme:
+    path:     /DeleteProgramme/{idprogramme}
+    defaults: { _controller: PidevBundle:Programme:DeleteProgramme }
+RechActiviteFront:
+    path:     /Front/ReadActivite
+    defaults: { _controller: PidevBundle:Activite:ReadActiviteFront }
+RatingActiviteFront:
+    path:     /Front/RatingActivite/{intitule}
+    defaults: { _controller: PidevBundle:Ratingactivite:Ratingactivite }
+ReadActiviteFront:
+    path:     /Front/SearchActivite
+    defaults: { _controller: PidevBundle:Activite:search }
+MoreInformationActivite:
+    path:     /Front/Activite/{intitule}
+    defaults: { _controller: PidevBundle:Activite:PlusInfoActivite }
+TriIntitule:
+    path:     /Front/SearchActiviteIntitule
+    defaults: { _controller: PidevBundle:Activite:SearchIntitule }
+TriResponsable:
+    path:     /Front/SearchActiviteResponsable
+    defaults: { _controller: PidevBundle:Activite:SearchResponsable }
+TriHeure:
+    path:     /Front/SearchActiviteHeure
+    defaults: { _controller: PidevBundle:Activite:SearchHeure }
+chart:
+    path:     /Front/Stat
+    defaults: { _controller: PidevBundle:Activite:StatFront }
+CreateExcursion:
+    path:     /CreateExcursion
+    defaults: { _controller: PidevBundle:Evenement:CreateExcursion }
+ReadExcursion:
+    path:     /ReadExcursion
+    defaults: { _controller: PidevBundle:Evenement:ReadExcursion }
+DeleteExcursion:
+    path:     /DeleteExcursion/{id}
+    defaults: { _controller: PidevBundle:Evenement:DeleteExcursion }
+UpdateExcursion:
+    path:     /UpdateExcursion/{id}
+    defaults: { _controller: PidevBundle:Evenement:UpdateExcursion }
+CreateFete:
+    path:     /CreateFete
+    defaults: { _controller: PidevBundle:Evenement:CreateFete }
+ReadFete:
+    path:     /ReadFete
+    defaults: { _controller: PidevBundle:Evenement:ReadFete }
+DeleteFete:
+    path:     /DeleteFete/{id}
+    defaults: { _controller: PidevBundle:Evenement:DeleteFete }
+UpdateFete:
+    path:     /UpdateFete/{id}
+    defaults: { _controller: PidevBundle:Evenement:UpdateFete }
+ReadExcursionFront:
+    path:      /Front/ReadExcursion
+    defaults: { _controller: PidevBundle:Evenement:RechercheEvenement }
+
+PdfGeneratorAction:
+    path:      /Front/generatePdf
+    defaults: { _controller: PidevBundle:Evenement:PdfGenerator }
+
+ParsinguserAll:
+  path:      /parsing/userAll
+  defaults: { _controller: PidevBundle:User:parsingUserDisplay }
+
+ParsingAdmins:
+  path:      /parsing/admins
+  defaults: { _controller: PidevBundle:User:parsingAdminsDisplay }
+
+Parsinguserone:
+  path:      /parsing/userone/{username}/{mdp}
+  defaults: { _controller: PidevBundle:User:parsingUserOne }
+
+ModifyUser:
+  path:      /parsing/modifyuser/{id}/{username}/{email}/{password}/{nom}/{prenom}/{image}/{numtel}/{day}/{mounth}/{year}/{hour}/{minute}/{region}/{ville}/{rue}/{codepostal}
+  defaults: { _controller: PidevBundle:User:modifyUser }
+
+
+AddUser:
+  path:      /parsing/adduser/{id}/{username}/{email}/{password}/{nom}/{prenom}/{image}/{numtel}/{day}/{mounth}/{year}/{hour}/{minute}/{region}/{ville}/{rue}/{codepostal}
+  defaults: { _controller: PidevBundle:User:addUser }
+
+ParseAllMenus:
+  path:      /parsing/allmenus
+  defaults: { _controller: PidevBundle:Menu:parseAllMenus }
+
+ParseAllMenusForDay:
+  path:      /parsing/menusforday/{day}
+  defaults: { _controller: PidevBundle:Menu:parseAllMenusForDay }
+
+ParseEnfantsParent:
+  path:      /parsing/enfantParent/{id}
+  defaults: { _controller: PidevBundle:Menu:parseChildrenOfParent }
+
+ReserverParMobile:
+  path:      /parsing/reserverMenu/{idenfant}/{idmenu}/{jour}
+  defaults: { _controller: PidevBundle:Menu:ReserverParMobile }
+
+ParseAllCommandesEnfant:
+  path:      /parsing/Commandes/{idEnfant}
+  defaults: { _controller: PidevBundle:Menu:parseAllCommandesEnfant }
+
+ParseStats:
+  path:      /parsing/StatCommandes
+  defaults: { _controller: PidevBundle:Menu:parseStats }
+
+rt:
+    path:      /zaert/{id}
+    defaults: { _controller: PidevBundle:Enfant:ajout }
+
+ajouter:
+    path:      /json/ajout/{id}
+    defaults: { _controller: PidevBundle:Babysitter:ajout }
+
+basssq:
+    path:      /ttt
+    defaults: { _controller: PidevBundle:Babysitter:test }
+
+azzz:
+    path:      /enfant/all
+    defaults: { _controller: PidevBundle:Enfant:all }
+
+removeBabysitter:
+    path:      /remove/{id}
+    defaults: { _controller: PidevBundle:Babysitter:Remove }
+all:
+  path: /activite/all
+  defaults: { _controller: PidevBundle:Activite:all }
+find:
+  path: /activite/all/{intitule}
+  defaults: { _controller: PidevBundle:Activite:find }
+new:
+  path: /activite/new
+  defaults: { _controller: PidevBundle:Ratingactivite:new }
+allRating:
+  path: /activite/allRating
+  defaults: { _controller: PidevBundle:Ratingactivite:all }
+allEvenementAction:
+      path:      /Evenement/all
+      defaults:  { _controller: PidevBundle:Evenement:all }
+
+test2:
+    path:      /test2
+    defaults: { _controller: PidevBundle:Babysitter:test2 }

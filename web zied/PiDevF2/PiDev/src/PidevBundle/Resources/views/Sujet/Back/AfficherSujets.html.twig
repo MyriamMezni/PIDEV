@@ -1,0 +1,83 @@
+{% extends "Back.html.twig" %}
+{% block content %}
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Forum</h1>
+                </div>
+
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    {% for s in sujets %}
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="{{ asset("Images/"~s.IdUser.image) }}" alt="user image">
+                        <span class="username">
+                                  <a href="#">{{ s.IdUser.prenom }} {{ s.IdUser.nom}}</a>
+                                </span>
+                        <span class="description">{{ s.IdUser.role}}</span>
+                    </div>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <i class="fas fa-minus"></i></button>
+                        {#<button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                            <i class="fas fa-times"></i></button>#}
+
+                    </div>
+                    <div class="card-tools">
+                        {% if app.user.role=="Admin" %}
+                            <a href="{{ path('SupprimerSujetBack',{'idSujet':s.id}) }}"><i class="fas fa-trash" style="color: #aa0719"></i></a>
+                            {% if s.categorie !="Reclamation" %}
+                                <a href="{{ path('ModifierSujetBack',{'idSujet':s.id}) }}"><i class="fas fa-edit" style="color: #00b44e"></i></a>
+                            {% endif %}
+                            {% elseif app.user.id==s.IdUser.id%}
+                                <a href="{{ path('ModifierSujetBack',{'idSujet':s.id}) }}"><i class="fas fa-edit" style="color: #00b44e"></i></a>
+
+                        {% endif %}
+                    </div>
+
+                    <br>
+                    <br>
+                    <h3><a href="{{ path('Afficher_Commentaires_Back',{'idSujet':s.id}) }}">[{{ s.categorie }}]{{ s.titre }}</a></h3>
+
+
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Crée le {{ s.dateCreation|date('d/m/Y') }} à {{ s.dateCreation|date('H:i') }}
+                        </div>
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-3">
+                            {% if s.dateModification is  not null %}
+
+                                Modifié le {{ s.dateModification|date('d/m/Y') }} à {{ s.dateModification|date('H:i') }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    {{ s.description }}
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                    <span class="float-right">
+                          <a href="{{ path('Afficher_Commentaires_Back',{'idSujet':s.id}) }}" class="link-black text-sm">
+                            <i class="far fa-comments mr-1"></i> Commentaires
+                          </a>
+                    </span>
+                </div>
+                <!-- /.card-footer-->
+            </div>
+            <!-- /.card -->
+
+        </section>
+    {% else %}
+    {% endfor %}
+{% endblock %}

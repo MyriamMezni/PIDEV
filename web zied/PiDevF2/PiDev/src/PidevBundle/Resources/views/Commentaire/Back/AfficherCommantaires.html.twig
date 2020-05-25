@@ -1,0 +1,48 @@
+{% extends "Back.html.twig" %}
+{% block content %}
+    <br>
+            {% for c in commentaires %}
+            <div class="card">
+                <div class="card-body">
+                    <div class="post">
+                        <div class="user-block">
+                            <img class="img-circle img-bordered-sm" src="{{ asset("Images/"~c.IdUser.image) }}" alt="user image">
+                            <span class="username">
+                                  <a href="#">{{ c.idUser.prenom }} {{ c.idUser.nom }}</a>
+
+                                </span>
+                            <span class="description">{{ c.idUser.role }}</span>
+                        </div>
+                        <!-- /.user-block -->
+                        <p>
+                            {{ c.texte }}
+                        </p>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            {% else %}
+                <div class="info-box bg-light">
+                    <div class="info-box-content">
+                        <span class="info-box-text text-center text-muted ">Pas De Commentaires</span>
+                    </div>
+                </div>
+
+            {% endfor %}
+    {{ form_start(form) }}
+    <div class="form-group">
+    {{ form_widget(form.texte,{'attr':{'class':'form-control form-control-sm','placeholder':'Ecrire un commentaire'} }) }}
+    </div>
+    {{ form_widget(form.Commenter,{'attr':{'class':'btn btn-primary'} } ) }}
+    {{ form_end(form) }}
+{#    <input class="form-control form-control-sm" type="text" placeholder="Ecrire un commentaire">#}
+
+
+
+
+
+
+{% endblock %}

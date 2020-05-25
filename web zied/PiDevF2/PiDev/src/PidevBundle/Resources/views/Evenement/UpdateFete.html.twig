@@ -1,0 +1,63 @@
+{% extends "Back.html.twig" %}
+
+{% block content %}
+    <html>
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Modifier une fete</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">fete</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <body>
+    <center>
+
+
+        <fieldset style="width: 50%">
+            <form method="POST">
+
+                capacite :<select  class='form-control' type="text" name="capacite" value="{{ fete.capacite }} ">
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="75">75</option>
+
+                </select class='form-control' >
+                </br>
+                nom : <input class='form-control' type="text" name="nom" value="{{ fete.nom  }}">
+                </br>
+                heure debut	: <input class='form-control' type="text" name="heureD" value="{{ fete.heureD }}">
+                </br>
+                dateEvt : <input class='form-control' type="date" name="dateEvt" value="{{ fete.dateEvt  }}">
+                </br>
+                image : <input class='form-control' type="file" name="image" value="{{ fete.image  }}">
+                </br>
+                Type:<select  class='form-control' type="text" name="type" value="{{ fete.type }} ">
+                    <option value="Fete">Fete</option>
+
+                </select class='form-control' >
+                Lieu :<select  class='form-control' type="text" name="lieu" value="{{ fete.lieu }} ">
+
+                    <option value="Rades">Rades</option>
+                    <option value="Megrine">Megrine</option>
+                    <option value="Marsa">Marsa</option>
+                    <option value="Lac">Lac</option>
+                </select class='form-control' >
+                </br>
+
+                <input type="submit" value="Enregistrer">
+
+            </form>
+        </fieldset>
+
+    </center>
+    </body>
+    </html>
+{% endblock %}

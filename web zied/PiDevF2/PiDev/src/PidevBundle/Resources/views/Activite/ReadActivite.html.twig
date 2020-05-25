@@ -1,0 +1,83 @@
+
+{% extends "Back.html.twig" %}
+
+
+{% block content %}
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Liste des activités</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Activité</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <table  class="table table-bordered" >
+        <tr>
+            <th style="width: 10px">Id</th>
+            <th >Intitule</th>
+            <th>Niveau</th>
+            <th style="width: 40px">Responsable</th>
+            <th style="width: 40px">Type</th>
+            <th style="width: 40px">Heure debut</th>
+            <th style="width: 40px">Heure Fin</th>
+            <th style="width: 40px">Qr Code</th>
+
+
+        </tr>
+{% for a in Activites|sortbyfield('intitule')%}
+       <tr>
+           <td>{{ a.IdActivite }}</td>
+           <td>{{ a.Intitule }}</td>
+           <td>{{ a.Niveau }}</td>
+           <td>{{ a.Responsable }}</td>
+           <td>{{ a.Type }}</td>
+           <td>{{ a.HeureDebut }}</td>
+           <td>{{ a.HeureFin }}</td>
+           <td>  {{ barcode({code: a.Intitule, type: 'qrcode', format: 'html'}) }}</td>
+           <td><a href="{{ path('UpdateActivite',{'idactivite':a.idactivite}) }}">Modifier</a></td>
+           <td><a href="{{ path('DeleteActivite',{'idactivite':a.idactivite}) }}">Supprimer</a></td>
+
+       </tr>
+   {% endfor %}
+    </table>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

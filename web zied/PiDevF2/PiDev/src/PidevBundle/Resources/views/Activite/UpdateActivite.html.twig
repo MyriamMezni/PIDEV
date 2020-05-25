@@ -1,0 +1,57 @@
+{% extends "Back.html.twig" %}
+
+{% block content %}
+<html>
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Modifier une activité</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Activité</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<body>
+<center>
+
+
+    <fieldset style="width: 50%">
+        <form method="POST">
+            Intitule : <input class='form-control' type="text" name="intitule" value="{{ Activites.intitule  }}">
+            </br>
+            Niveau :<select  class='form-control' type="text" name="niveau" value="{{ Activites.niveau }} ">
+                <option value="3 ans">3 ans</option>
+                <option value="4 ans">4 ans</option>
+                <option value="5 ans">5 ans</option>
+
+            </select class='form-control' >
+            </br>
+            Responsable	: <input class='form-control' type="text" name="responsable" value="{{ Activites.responsable }}">
+            </br>
+          Type:<select  class='form-control' type="text" name="type" value="{{ Activites.type }} ">
+                 <option value="Education">Education</option>
+            <option value="Loisirs">Loisirs</option>
+
+           </select class='form-control' >
+            </br>
+            Heure Debut	 : <input class='form-control' type="time" name="heuredebut" value="{{ Activites.heuredebut }}">
+            </br>
+            Heure Fin : <input  class='form-control' type="time" name="heurefin" value="{{ Activites.heurefin }}">
+            </br>
+
+
+            <input type="submit" value="Enregistrer">
+
+        </form>
+    </fieldset>
+
+</center>
+</body>
+</html>
+{% endblock %}
