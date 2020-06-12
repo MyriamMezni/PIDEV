@@ -1,0 +1,16 @@
+ try{
+        FileUploader fu = new FileUploader("localhost/swr/web/");
+       
+        //Upload
+        String fileNameInServer = fu.upload(lien);
+        System.out.println(fileNameInServer);
+        //Delete
+   String    DataBaseLink=fileNameInServer;
+    }catch(Exception ex){
+        ex.printStackTrace();
+    }
+      
+      
+    Compaign C1=new Compaign (nom1,trgt,DataBaseLink,desc);
+        try { 
+            Ser.ajouterCmp(C1);

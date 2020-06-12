@@ -1,0 +1,82 @@
+{% extends "Front.html.twig" %}
+
+{% block content %}
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Listes des activités</title>
+</head>
+<body>
+<center>
+    <h1>Listes des activités</h1>
+
+    <input class="form-control" type="text" value="" placeholder="Rechercher ">
+
+
+       Trier par : <select name="cb">
+            <option value="1">Intitule</option>
+            <option value="2" >Responsable</option>
+            <option value="3">Heure</option>
+
+        </select>
+
+        {% for a in Activites|sortbyfield('intitule')%}
+
+        <div class="row">
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <div class="package text-center bg-white">
+                    <span class="img-wrap"> {{ barcode({code: a.Intitule, type: 'qrcode', format: 'html'}) }}</span>
+
+                    <h3 class="text-teal">Intitule :  {{ a.Intitule }}</h3>
+                    <h5 class="d-block text-black" >{{ a.Niveau }} </h5>
+                    <h5 class="d-block text-black">{{ a.Responsable }} </h5>
+                    <h5 class="d-block text-black">{{ a.Type }} </h5>
+                    <h5 class="d-block text-black" >{{ a.HeureDebut }} </h5>
+                    <h5 class="d-block text-black" >{{ a.HeureFin }} </h5>
+
+
+                        <a href="{{ path('RatingActiviteFront',{'intitule':a.Intitule}) }}" class="btn btn-primary btn-custom-1 mt-4">Noter l'activité</a></p>
+                </div>
+            </div>
+
+
+        {% endfor %}
+    </table>
+</center>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+{% endblock %}

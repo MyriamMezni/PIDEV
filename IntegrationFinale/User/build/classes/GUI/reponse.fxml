@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #dbd5ce;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ReponseController">
+   <children>
+      <Button layoutX="821.0" layoutY="589.0" mnemonicParsing="false" onAction="#afficheTable" style="-fx-background-color: #f8521b;" text="delete" />
+      <TableView fx:id="table" layoutX="250.0" layoutY="88.0" prefHeight="200.0" prefWidth="816.0">
+        <columns>
+          <TableColumn fx:id="nom" prefWidth="75.0" text="nom" />
+            <TableColumn fx:id="prenom" prefWidth="75.0" text="prenom" />
+            <TableColumn fx:id="datenaissance" prefWidth="105.0" text="datenaissance" />
+            <TableColumn fx:id="remarque" prefWidth="76.0" text="remarque" />
+            <TableColumn fx:id="image" prefWidth="85.0" text="image" />
+            <TableColumn fx:id="parent" prefWidth="79.0" text="parent" />
+            <TableColumn fx:id="cantine" prefWidth="91.0" text="cantine" />
+            <TableColumn fx:id="document" prefWidth="75.0" text="document" />
+            <TableColumn fx:id="status" prefWidth="75.0" text="status" />
+        </columns>
+      </TableView>
+      <TextField fx:id="nom1" layoutX="347.0" layoutY="343.0" prefHeight="25.0" prefWidth="149.0" />
+      <TextField fx:id="prenom1" layoutX="347.0" layoutY="414.0" prefHeight="31.0" prefWidth="150.0" />
+      <Label layoutX="298.0" layoutY="348.0" prefHeight="21.0" prefWidth="31.0" text="nom" />
+      <Label layoutX="287.0" layoutY="419.0" text="prenom" />
+      <DatePicker fx:id="datenaissance1" layoutX="628.0" layoutY="338.0" prefHeight="31.0" prefWidth="158.0" />
+      <Label layoutX="525.0" layoutY="343.0" text="date naissance" />
+      <Label layoutX="504.0" layoutY="399.0" prefHeight="17.0" prefWidth="72.0" text="remarque" />
+      <TextArea fx:id="remarque1" layoutX="586.0" layoutY="394.0" prefHeight="160.0" prefWidth="200.0" />
+      <Label layoutX="803.0" layoutY="474.0" text="cantine" />
+      <TextField fx:id="image1" layoutX="873.0" layoutY="338.0" />
+      <Button layoutX="753.0" layoutY="589.0" mnemonicParsing="false" onAction="#update" style="-fx-background-color: #f8521b;" text="update" />
+      <Button layoutX="471.0" layoutY="589.0" mnemonicParsing="false" onAction="#inscrire" style="-fx-background-color: #f8521b;" text="valide" />
+      <Button layoutX="680.0" layoutY="589.0" mnemonicParsing="false" onAction="#afficheImage" style="-fx-background-color: #f8521b;" text="affiche" />
+      <TextField fx:id="filterField" layoutX="253.0" layoutY="42.0" onTouchReleased="#recherche" prefHeight="25.0" prefWidth="200.0" />
+      <Button disable="true" layoutX="329.0" layoutY="589.0" mnemonicParsing="false" onAction="#download" opacity="0.0" style="-fx-background-color: #f8521b;" text="download " />
+      <ComboBox fx:id="cantine1" layoutX="882.0" layoutY="470.0" prefWidth="150.0" />
+      <Button layoutX="798.0" layoutY="338.0" mnemonicParsing="false" onAction="#UploadEnfant" text="image" />
+      <ImageView fx:id="imagepreview" fitHeight="122.0" fitWidth="127.0" layoutX="352.0" layoutY="451.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="500.0" layoutY="288.0" text="modifier une insciption" textFill="#a41111">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="484.0" layoutY="37.0" text="consulte une insciption" textFill="#a41111">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <VBox layoutY="-1.0" prefHeight="720.0" prefWidth="227.0" style="-fx-background-color: #edb27e #edb27e;">
+         <children>
+            <Label prefHeight="115.0" prefWidth="232.0" style="-fx-background-color: #e85643;" text="Interface Admin" textFill="WHITE">
+               <font>
+                  <Font name="NeoSansLightTR-Light" size="31.0" />
+               </font>
+            </Label>
+            <HBox fx:id="gestionParent" onMouseClicked="#gestionParents" onMouseEntered="#ParentOn" onMouseExited="#ParentOff" prefHeight="11.0" prefWidth="228.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#e85643" iconName="USERS" size="1.5em" wrappingWidth="21.83203125" />
+                  <Label prefHeight="21.0" prefWidth="240.0" text="Gestion des parents" textFill="#e85643">
+                     <font>
+                        <Font name="NeoSansLightTR-Light" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="gestionEmploye" onMouseClicked="#gestionEmploye" onMouseEntered="#EmployeOn" onMouseExited="#EmployeOff" prefHeight="11.0" prefWidth="228.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#e85643" iconName="USERS" size="1.5em" wrappingWidth="21.83203125" />
+                  <Label prefHeight="21.0" prefWidth="240.0" text="Gestion des employés" textFill="#e85643">
+                     <font>
+                        <Font name="NeoSansLightTR-Light" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="gestionEnfants" onMouseClicked="#gestionEnfants" onMouseEntered="#EnfantOn" onMouseExited="#EnfantOff" prefHeight="11.0" prefWidth="228.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#e85643" iconName="USERS" size="1.5em" wrappingWidth="21.83203125" />
+                  <Label prefHeight="21.0" prefWidth="240.0" text="Gestion des enfants" textFill="#e85643">
+                     <font>
+                        <Font name="NeoSansLightTR-Light" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="10.0" />
+               </padding>
+            </HBox>
+            <Accordion style="-fx-background-color: #555555;">
+               <panes>
+                  <TitledPane fx:id="cantine2" animated="false" onMouseEntered="#CantineOn" onMouseExited="#CantineOff" style="-fx-background-color: #111111;" text="Cantine" textFill="#e85643">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #edb27e #edb27e;">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="228.0">
+                                 <children>
+                                    <HBox fx:id="Chaise" onMouseClicked="#Chaise" prefHeight="48.0" prefWidth="176.0" styleClass="btns">
+                                       <children>
+                                          <Label prefHeight="21.0" prefWidth="240.0" text="Gestion des chaises" textFill="#e85643">
+                                             <font>
+                                                <Font name="NeoSansLightTR-Light" size="18.0" />
+                                             </font>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="20.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox fx:id="Table" onMouseClicked="#Table" prefHeight="11.0" prefWidth="228.0" styleClass="btns">
+                                       <children>
+                                          <Label prefHeight="21.0" prefWidth="240.0" text="Gestion des tables" textFill="#e85643">
+                                             <font>
+                                                <Font name="NeoSansLightTR-Light" size="18.0" />
+                                             </font>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="20.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox fx:id="Menu" onMouseClicked="#Menu" prefHeight="48.0" prefWidth="176.0" styleClass="btns">
+                                       <children>
+                                          <Label prefHeight="21.0" prefWidth="240.0" text="Gestion des menus" textFill="#e85643">
+                                             <font>
+                                                <Font name="NeoSansLightTR-Light" size="18.0" />
+                                             </font>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="20.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <graphic>
+                        <FontAwesomeIcon glyphStyle="-fx-fill:#e85643" iconName="CUTLERY" size="1.5em" />
+                     </graphic>
+                  </TitledPane>
+               </panes>
+            </Accordion>
+            <HBox fx:id="evenements" onMouseClicked="#Evenement" onMouseEntered="#EvenementOn" onMouseExited="#EvenementOff" prefHeight="11.0" prefWidth="228.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#e85643" iconName="CALENDAR" size="1.5em" wrappingWidth="21.83203125" />
+                  <Label prefHeight="21.0" prefWidth="240.0" text="Evenements" textFill="#e85643">
+                     <font>
+                        <Font name="NeoSansLightTR-Light" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="Activite" onMouseClicked="#Activite" onMouseEntered="#ActiviteOn" onMouseExited="#ActiviteOff" prefHeight="11.0" prefWidth="228.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#e85643" iconName="BOOK" size="1.5em" wrappingWidth="21.83203125" />
+                  <Label prefHeight="21.0" prefWidth="240.0" text="Activite" textFill="#e85643">
+                     <font>
+                        <Font name="NeoSansLightTR-Light" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="SignOut" onMouseClicked="#SignOut" prefHeight="11.0" prefWidth="228.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#e85643" iconName="SIGN_OUT" size="1.5em" wrappingWidth="21.83203125" />
+                  <Label prefHeight="21.0" prefWidth="240.0" text="SignOut" textFill="#e85643">
+                     <font>
+                        <Font name="NeoSansLightTR-Light" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+      <Button layoutX="919.0" layoutY="589.0" mnemonicParsing="false" onAction="#BabySitter" style="-fx-background-color: #f8521b;" text="Gestion babysitter" />
+   </children>
+</AnchorPane>

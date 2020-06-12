@@ -1,0 +1,51 @@
+{% extends "Back.html.twig" %}
+{% block content %}
+    <h1>Liste des chaises de la cantine</h1>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th align="center">Numero de chaise</th>
+            <th align="center">Numero de table</th>
+            <th align="center">Enfant</th>
+            <th align="center"> Etat du plat</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for c in chaises %}
+            <tr>
+                <td align="center">{{ c.idChaise }}</td>
+                <td align="center"><a href="{{ path('AfficherTablesBack') }}">{{ c.numTable.idTable }}</a></td>
+                <td align="center">
+                    {% if c.idEnfant is not null %}
+                        <div class="user-block">
+                            <img class="img-circle img-bordered-sm" src="{{ asset("Images/"~c.idEnfant.image) }}" alt="user image">
+                            <span class="username">
+                                  <a href="#">{{ c.idEnfant.prenom }} {{ c.idEnfant.nom }}</a>
+
+                                </span>
+                            <span class="description">{{ c.idEnfant.IdParent.prenom }} {{ c.idEnfant.IdParent.nom }}</span>
+                        </div>
+                        {% else %}
+                        -
+                    {% endif %}
+                </td>
+                <td align="center">
+
+                        {% if c.etatplat=="Vide" %}
+                        <span class="badge bg-warning">Vide</span>
+                        {% else %}
+                            <span class="badge bg-primary">Remplie</span>
+                        {% endif %}
+                </td>
+
+                <td align="center"><a href="{{ path('ModifierChaiseBack',{'idChaise':c.idChaise}) }}"><i class="fas fa-edit" style="color: #00b44e"></i></a></td>
+                <td align="center"><a href="{{ path('SupprimerChaiseBack',{'idChaise':c.idChaise}) }}"><i class="fas fa-trash" style="color: #aa0719"></i></a></td>
+
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

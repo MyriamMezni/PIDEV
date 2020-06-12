@@ -1,0 +1,76 @@
+{% extends "Back.html.twig" %}
+{% block content %}
+    <h1>Liste des tables de la cantine</h1>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th align="center">Numero</th>
+            <th align="center">Capacite</th>
+            <th align="center">Modifier</th>
+            <th align="center">Supprimer</th>
+            <th align="center">Etat</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for t in tables %}
+            <tr>
+                <td align="center">{{ t.idTable }}</td>
+                <td align="center">{{ t.capacite }}</td>
+                <td align="center"><a href="{{ path('ModifierTableBack',{'idTable':t.idTable}) }}"><i class="fas fa-edit" style="color: #00b44e"></i></a></td>
+                <td align="center"><a href="{{ path('SupprimerTableBack',{'idTable':t.idTable}) }}"><i class="fas fa-trash" style="color: #aa0719"></i></a></td>
+                <td align="center">
+                    {% if t.capacite > 5 %}
+                        <span class="badge bg-primary">Disponible</span>
+                    {% elseif t.capacite>0 and t.capacite<=5 %}
+                        <span class="badge bg-warning">Presque complète</span>
+                    {% else %}
+                        <span class="badge bg-danger">Complète </span>
+                    {% endif %}
+                </td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endblock %}
+        {#<tr>
+            <td>1.</td>
+            <td>Update software</td>
+            <td>
+                <div class="progress progress-xs">
+                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                </div>
+            </td>
+            <td><span class="badge bg-danger">55%</span></td>
+        </tr>
+        <tr>
+            <td>2.</td>
+            <td>Clean database</td>
+            <td>
+                <div class="progress progress-xs">
+                    <div class="progress-bar bg-warning" style="width: 70%"></div>
+                </div>
+            </td>
+            <td><span class="badge bg-warning">70%</span></td>
+        </tr>
+        <tr>
+            <td>3.</td>
+            <td>Cron job running</td>
+            <td>
+                <div class="progress progress-xs progress-striped active">
+                    <div class="progress-bar bg-primary" style="width: 30%"></div>
+                </div>
+            </td>
+            <td><span class="badge bg-primary">30%</span></td>
+        </tr>
+        <tr>
+            <td>4.</td>
+            <td>Fix and squish bugs</td>
+            <td>
+                <div class="progress progress-xs progress-striped active">
+                    <div class="progress-bar bg-success" style="width: 90%"></div>
+                </div>
+            </td>
+            <td><span class="badge bg-success">90%</span></td>
+        </tr>
+        #}

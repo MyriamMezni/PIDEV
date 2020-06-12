@@ -1,0 +1,28 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    background-color: #dbd5ce;
+
+}
+.tab-header-background
+{
+    -fx-background-color:transparent;
+    -fx-text-base-color:#891d1d;
+}
+.tab-label
+{
+    -fx-text-base-color:#891d1d;
+}
+.tab
+{
+    -fx-background-color:transparent;
+    -fx-pref-height: 60;
+    -fx-pref-width:400;
+    
+}
+AnchorPane
+{
+    background-color: #dbd5ce;
+}

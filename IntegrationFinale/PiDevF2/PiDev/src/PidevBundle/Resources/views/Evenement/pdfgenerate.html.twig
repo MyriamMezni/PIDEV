@@ -1,0 +1,35 @@
+<head> <h1 style="color:#5049e9"> {{ title }} </h1> </head>
+<body style="background-color:#f18ae3" >
+
+
+
+
+
+
+
+</body>
+{% for a in fete %}
+    <table width="1100px;heigth=1100px"cellspacing="5" cellpadding="5"><h1></h1> <tr width="400px;heigth=400px">
+    <td> <img width="350px;heigth=200px" src="{{rootDir~asset("/web/Images/"~a.image) }}"></td>
+            <td></td>  <td width="700px;heigth=700px">
+
+
+            <td width="75%">
+                <p><b>ID : </b>{{ a.id }}</p>
+                <p><b>Capacite: </b>{{ a.capacite }}</p>
+                <p><b>nom : </b>{{ a.nom }}</p>
+                <p><b>Heure debut: </b>{{ a.heured }}</p>
+                <p><b>Description : </b> {{ a.description }} </p>
+                <p><b>DateEvent : </b> {{ a.dateEvt }} </p>
+                <p><b>Type : </b> {{ a.type }} </p>
+                <p><b>Depart : </b> {{ a.depart }} </p>
+                <p><b>Destination : </b> {{ a.destination }} </p>
+            </td>
+-* -* -* -* -* -* -* -* -* -* -* -*  -* -* -* -* -* -* -*
+            </td>
+
+
+    </table>
+
+    <br>
+{% endfor %}

@@ -1,0 +1,46 @@
+
+        <a class="nav-link" data-toggle="dropdown" href="#">
+            <span class="icon-bell"></span>
+            {% if notifs|length >0 %}
+                <span class="badge badge-danger navbar-badge">{{ notifs|length }}</span>
+            {% endif %}
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+            {% for n in notifs %}
+                <a href="{{ path('SetSeen',{'notif':n.id}) }}" class="dropdown-item">
+                    <!-- Message Start -->
+                    {#<div class="media">
+                        <img src="{{ asset("Images/"~n.icon) }}" style="width:25px;height: 25px;" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                        <div class="media-body">
+                            <h3 class="dropdown-item-title">
+                                {{ n.title }}
+                                #}{#                                <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>#}{#
+                            </h3>
+                            <p class="text-sm">{{ n.description }}</p>
+                            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> {{ n.date|date('d/m/Y H:i') }}</p>
+                        </div>
+                    </div>#}
+                    <div class="card" style="width: ">
+                        <div class="card-header">
+                            <div class="testimonial-3 d-flex">
+                                <div class="vcard-wrap mr-5">
+                                    <img src="{{ asset("Images/"~n.icon) }}" alt="Image" class="vcard img-fluid">
+                                </div>
+                                <div class="text" >
+                                    <h3 style="color: #17a2b8">{{ n.title }}</h3>
+                                    <p class="position" style="color: #17a2b8">{{ n.description }}</p>
+                                </div>
+                            </div>
+                            <br>
+
+
+                        </div>
+                    </div>
+                    <!-- Message End -->
+                </a>
+                <div class="dropdown-divider"></div>
+            {% else %}
+                <a href="#" class="dropdown-item dropdown-footer">Pas de notifications!</a>
+            {% endfor %}
+            {#            <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>#}
+        </div>

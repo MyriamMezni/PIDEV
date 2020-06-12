@@ -1,0 +1,418 @@
+{#{% if app.user is  null %}
+    {% do redirect(path('front')) %}
+    {% else %}
+        {% if app.user.role=="Parent" %}
+            {% do redirect(path('front')) %}
+        {% endif %}
+{% endif %}#}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}Kiddy | Dashboard {% endblock %}</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block stylesheets %}
+    <!-- Font Awesome -->
+    <link  href="{{ asset('back/plugins/fontawesome-free/css/all.min.css') }}" rel="stylesheet" >
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="{{ asset('back/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="{{ asset('back/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="{{ asset('back/plugins/jqvmap/jqvmap.min.css') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('back/dist/css/adminlte.min.css') }}">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="{{ asset('back/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="{{ asset('back/plugins/daterangepicker/daterangepicker.css') }}">
+    <!-- summernote -->
+    <link rel="stylesheet" href="{{ asset('back/plugins/summernote/summernote-bs4.css') }}">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    {% endblock %}
+</head>
+<body {% block bodyClass %}class="hold-transition sidebar-mini layout-fixed"{% endblock %}>
+<div class="wrapper">
+    {% block navbar %}
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-dark">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+
+            </li>
+
+
+
+        </ul>
+
+        {{ render(controller("PidevBundle:Notification:afficheNotifBack")) }}
+
+
+    </nav>
+    <!-- /.navbar -->
+    {% endblock %}
+
+    <!-- Main Sidebar Container -->
+    {% block aside %}
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="#" class="brand-link">
+            <img src="{{ asset('back/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                 style="opacity: .8">
+            <span class="brand-text font-weight-light">Kiddy</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src={% block profile %}"{{ asset("Images/"~app.user.image) }}"{% endblock %} class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">{{ app.user.username }}</a>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class
+                         with font-awesome or any other icon font library -->
+                    {% if app.user.role=="Admin" %}
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Gestion des parents
+                            </p>
+                        </a>
+                    </li>
+
+
+                        <li class="nav-item has-treeview ">
+                            <a href="#" class="nav-link ">
+                                <i class="nav-icon fas fa-child"></i>
+                                <p>
+                                    Gestion des enfants
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ path('afficheEnfant') }}" class="nav-link">
+                                        <i class="fas fa-baby"></i>
+                                        <p>Afficher les enfants</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ path('ajoutBabysitter') }}" class="nav-link">
+                                        <i class="nav-icon fas fa-child"></i>
+                                        <p>Ajouter les babysitters</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ path('afficheBabysitter') }}" class="nav-link">
+                                        <i class="nav-icon fas fa-child"></i>
+                                        <p>Afficher les babysitters</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    <li class="nav-item has-treeview ">
+                        <a href="#" class="nav-link ">
+                            <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                            <p>
+                                Gestion des employés
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ path('AjoutUser',{'role':'Employe'}) }}" class="nav-link">
+                                    <p>Ajouter un employé</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <p>Afficher les employés</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {% endif %}
+
+                    <li class="nav-item has-treeview ">
+                        <a href="#" class="nav-link ">
+                            <i class="nav-icon fas fa-utensils"></i>
+                            <p>
+                                Cantine
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item has-treeview ">
+                                <a href="#" class="nav-link ">
+                                    <i class="nav-icon fas fa-hamburger"></i>
+                                    <p>
+                                        Menu
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ path('AjouterMenuBack') }}" class="nav-link">
+                                            <p>Ajouter une menu</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ path('AfficherMenusBack') }}" class="nav-link">
+                                            <p>Parcourir les menus</p>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="{{ path('StatCommandes') }}" class="nav-link">
+                                            <p>Statistiques sur les menus</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item has-treeview ">
+                                <a href="#" class="nav-link ">
+                                    <i class="nav-icon fas fa-table"></i>
+                                    <p>
+                                        Table
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ path('AjouterTableBack') }}" class="nav-link">
+                                            <p>Ajouter une table</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ path('AfficherTablesBack') }}" class="nav-link">
+                                            <p>Parcourir les tables</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item has-treeview ">
+                                <a href="#" class="nav-link ">
+                                    <i class="nav-icon fas fa-chair"></i>
+                                    <p>
+                                        Chaise
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ path('AjouterChaiseBack') }}" class="nav-link">
+                                            <p>Ajouter une chaise</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ path('AfficherChaisesBack') }}" class="nav-link">
+                                            <p>Parcourir les chaises</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-treeview ">
+                        <a href="#" class="nav-link ">
+                            <i class="nav-icon fas fa-comments"></i>
+                            <p>
+                                Forum
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ path('Ajout_Sujet_Back') }}"class="nav-link">
+                                    <p>Ajouter un sujet</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('Afficher_Sujets_Back') }}"class="nav-link">
+
+                                    <p>Parcourir le forum</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-treeview ">
+                        <a href="#" class="nav-link ">
+                            <i class="nav-icon fas fa-calendar-alt"></i>
+                            <p>
+                                Evénements
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ path('CreateExcursion') }}" class="nav-link">
+                                    <p>Ajouter une excursion</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('ReadExcursion') }}" class="nav-link">
+                                    <p>Parcourir les excursions </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('CreateFete') }}" class="nav-link">
+                                    <p>Ajouter une fête</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('ReadFete') }}" class="nav-link">
+                                    <p>Parcourir les fêtes</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('PdfGeneratorAction') }}" class="nav-link">
+                                    <p>Generer un pdg</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-treeview ">
+                        <a href="#" class="nav-link ">
+                            <i class="nav-icon fas fa-school"></i>
+                            <p>
+                                Activités
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ path('CreateActivite') }}" class="nav-link">
+                                    <p>Ajouter une activité</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('ReadActivite') }}" class="nav-link">
+                                    <p>Parcourir les activités</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('CreateProgramme') }}" class="nav-link">
+                                    <p>Ajouter les programmes</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('ReadProgramme') }}" class="nav-link">
+                                    <p>Parcourir les programmes</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ path('fos_user_security_logout') }}" class="nav-link">
+                            <i class="nav-icon fas fa-sign-out-alt"></i>
+                            <p>
+                                Déconnexion
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+    {% endblock %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+    {% block content %}
+    {% endblock %}
+    </div>
+    <!-- /.content-wrapper -->
+    {% block footer %}
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2019-2020 <a href="#">Griffin</a>.</strong>
+        All rights reserved.
+
+        <div class="float-right d-none d-sm-inline-block">
+
+        </div>
+    </footer>
+    {% endblock %}
+
+
+</div>
+<!-- ./wrapper -->
+{% block js %}
+<!-- jQuery -->
+<script src="{{ asset('back/plugins/jquery/jquery.min.js') }}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{ asset('back/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset('back/plugins/bootstrap/js/bootstrap.bundle.min.js ') }}"></script>
+<!-- ChartJS -->
+<script src="{{ asset('back/plugins/chart.js/Chart.min.js') }}"></script>
+<!-- Sparkline -->
+<script src="{{ asset('back/plugins/sparklines/sparkline.js') }}"></script>
+<!-- JQVMap -->
+<script src="{{ asset('back/plugins/jqvmap/jquery.vmap.min.js') }}"></script>
+<script src="{{ asset('back/plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
+<!-- jQuery Knob Chart -->
+<script src="{{ asset('back/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
+<!-- daterangepicker -->
+<script src="{{ asset('back/plugins/moment/moment.min.js') }}"></script>
+<script src="{{ asset('back/plugins/daterangepicker/daterangepicker.js') }}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{{ asset('back/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+<!-- Summernote -->
+<script src="{{ asset('back/plugins/summernote/summernote-bs4.min.js') }}"></script>
+<!-- overlayScrollbars -->
+<script src="{{ asset('back/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('back/dist/js/adminlte.js') }}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{ asset('back/dist/js/pages/dashboard.js') }}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{ asset('back/dist/js/demo.js') }}"></script>
+{% endblock %}
+{# Call NotificationsBundles's assets #}
+{{ notifications_assets() }}
+<script>
+    /**
+     * After calling notifications_assets() "pusher" is now available
+     * and you can use it this way
+     */
+
+        // select the channel you want to listen to
+    var channel = pusher.subscribe("notifications");// notifications channel
+    channel.bind("my-event", function(data) {
+        console.log('from notifications channel', data);
+    });
+
+    var channel = pusher.subscribe("messages");// messages channel
+    channel.bind("my-event", function(data) {
+        console.log('from messages channel', data);
+    });
+</script>
+</body>
+</html>

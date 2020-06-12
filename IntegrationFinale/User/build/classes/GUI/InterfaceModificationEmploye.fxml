@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #dbd5ce;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.InterfaceModificationEmployeController">
+    <stylesheets>
+        <URL value="@interfacemodificationemploye.css" />
+      <URL value="@interfaceparent.css" />
+    </stylesheets>
+   <children>
+      <VBox layoutY="1.0" prefHeight="720.0" prefWidth="240.0" style="-fx-background-color: #edb27e;">
+         <children>
+            <Label prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #e85643;" text="Interface Employé" textFill="WHITE">
+               <font>
+                  <Font name="NeoSansLightTR-Light" size="31.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="image" fitHeight="113.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </ImageView>
+            <HBox fx:id="gestionCompte" onMouseClicked="#gesionCompte" prefHeight="11.0" prefWidth="228.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#e85643" iconName="USER" size="1.5em" wrappingWidth="21.83203125" />
+                  <Label prefHeight="21.0" prefWidth="240.0" text="Gestion du compte" textFill="#e85643">
+                     <font>
+                        <Font name="NeoSansLightTR-Light" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="gestionEnfants" onMouseClicked="#gestionEnfants" prefHeight="11.0" prefWidth="228.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#e85643" iconName="USERS" size="1.5em" wrappingWidth="21.83203125" />
+                  <Label prefHeight="21.0" prefWidth="240.0" text="Gestion des enfants" textFill="#e85643">
+                     <font>
+                        <Font name="NeoSansLightTR-Light" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="10.0" />
+               </padding>
+            </HBox>
+            <Accordion style="-fx-background-color: #555555;">
+               <panes>
+                  <TitledPane fx:id="cantine1" animated="false" onMouseEntered="#CantineOn" onMouseExited="#CantineOff" style="-fx-background-color: #111111;" text="Cantine" textFill="#e85643">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #edb27e #edb27e;">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="228.0">
+                                 <children>
+                                    <HBox fx:id="Chaise" onMouseClicked="#Chaise" prefHeight="48.0" prefWidth="176.0" styleClass="btns">
+                                       <children>
+                                          <Label prefHeight="21.0" prefWidth="240.0" text="Gestion des chaises" textFill="#e85643">
+                                             <font>
+                                                <Font name="NeoSansLightTR-Light" size="18.0" />
+                                             </font>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="20.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox fx:id="Table" onMouseClicked="#Table" prefHeight="11.0" prefWidth="228.0" styleClass="btns">
+                                       <children>
+                                          <Label prefHeight="21.0" prefWidth="240.0" text="Gestion des tables" textFill="#e85643">
+                                             <font>
+                                                <Font name="NeoSansLightTR-Light" size="18.0" />
+                                             </font>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="20.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox fx:id="Menu" onMouseClicked="#Menu" prefHeight="48.0" prefWidth="176.0" styleClass="btns">
+                                       <children>
+                                          <Label prefHeight="21.0" prefWidth="240.0" text="Gestion des menus" textFill="#e85643">
+                                             <font>
+                                                <Font name="NeoSansLightTR-Light" size="18.0" />
+                                             </font>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="20.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <graphic>
+                        <FontAwesomeIcon glyphStyle="-fx-fill:#e85643" iconName="CUTLERY" size="1.5em" />
+                     </graphic>
+                  </TitledPane>
+               </panes>
+            </Accordion>
+            <HBox fx:id="Activite" onMouseClicked="#Activite" onMouseEntered="#ActiviteOn" onMouseExited="#ActiviteOff" prefHeight="11.0" prefWidth="228.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#e85643" iconName="BOOK" size="1.5em" wrappingWidth="21.83203125" />
+                  <Label prefHeight="21.0" prefWidth="240.0" text="Activite" textFill="#e85643">
+                     <font>
+                        <Font name="NeoSansLightTR-Light" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="evenements" onMouseClicked="#Evenement" prefHeight="11.0" prefWidth="228.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#e85643" iconName="CALENDAR" size="1.5em" wrappingWidth="21.83203125" />
+                  <Label prefHeight="21.0" prefWidth="240.0" text="Evenements" textFill="#e85643">
+                     <font>
+                        <Font name="NeoSansLightTR-Light" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="SignOut" onMouseClicked="#SignOut" prefHeight="11.0" prefWidth="228.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#e85643" iconName="SIGN_OUT" size="1.5em" wrappingWidth="21.83203125" />
+                  <Label prefHeight="21.0" prefWidth="240.0" text="SignOut" textFill="#e85643">
+                     <font>
+                        <Font name="NeoSansLightTR-Light" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+      <JFXTextField fx:id="prenom" focusColor="#f8521b" layoutX="507.0" layoutY="74.0" prefHeight="31.0" prefWidth="266.0" promptText="Prenom" style="-fx-text-fill: #ffffff;" />
+      <Label layoutX="283.0" layoutY="79.0" text="Prenom" />
+      <JFXTextField fx:id="nom" focusColor="#f8521b" layoutX="507.0" layoutY="133.0" prefHeight="31.0" prefWidth="266.0" promptText="Nom" style="-fx-text-fill: #ffffff;" />
+      <Label layoutX="283.0" layoutY="138.0" text="Nom" />
+      <JFXTextField fx:id="email" disable="true" focusColor="#f8521b" layoutX="507.0" layoutY="187.0" prefHeight="31.0" prefWidth="266.0" promptText="Email" style="-fx-text-fill: #ffffff;" />
+      <Label layoutX="283.0" layoutY="192.0" text="Email" />
+      <JFXPasswordField fx:id="mdp" focusColor="#f8521b" layoutX="507.0" layoutY="248.0" prefHeight="31.0" prefWidth="266.0" promptText="Mot de passe" style="-fx-text-fill: #ffffff;" />
+      <Label layoutX="284.0" layoutY="253.0" text="Mot de passe" />
+      <JFXPasswordField fx:id="mdpc" focusColor="#f8521b" layoutX="507.0" layoutY="300.0" prefHeight="31.0" prefWidth="266.0" promptText="Confirmer Mot de passe" style="-fx-text-fill: #ffffff;" />
+      <Label layoutX="282.0" layoutY="305.0" text="Confirmer Mot de passe" />
+      <JFXTextField fx:id="numTel" focusColor="#f8521b" layoutX="507.0" layoutY="351.0" prefHeight="31.0" prefWidth="266.0" promptText="Num Tel" style="-fx-text-fill: #ffffff;" />
+      <Label layoutX="282.0" layoutY="356.0" text="Num Tel" />
+      <ComboBox fx:id="region" layoutX="507.0" layoutY="398.0" prefHeight="31.0" prefWidth="266.0" style="-fx-background-color: #f8521b;" />
+      <Label layoutX="282.0" layoutY="403.0" text="Ragion" />
+      <JFXTextField fx:id="ville" focusColor="#f8521b" layoutX="507.0" layoutY="449.0" prefHeight="31.0" prefWidth="266.0" promptText="Ville" style="-fx-text-fill: #ffffff;" />
+      <Label layoutX="285.0" layoutY="454.0" text="Ville" />
+      <JFXTextField fx:id="rue" focusColor="#f8521b" layoutX="507.0" layoutY="504.0" prefHeight="31.0" prefWidth="266.0" promptText="Rue" style="-fx-text-fill: #ffffff;" />
+      <Label layoutX="285.0" layoutY="509.0" text="Rue" />
+      <JFXTextField fx:id="codePostal" focusColor="#f8521b" layoutX="507.0" layoutY="561.0" prefHeight="31.0" prefWidth="266.0" promptText="Code Postal" style="-fx-text-fill: #ffffff;" />
+      <Label layoutX="285.0" layoutY="566.0" text="Code Postal" />
+      <Label layoutX="284.0" layoutY="622.0" text="Image" />
+      <JFXButton fx:id="image1" layoutX="507.0" layoutY="617.0" onAction="#choisirImage" style="-fx-background-color: #f8521b;" text="Selectionner" textFill="#dddddd" />
+      <JFXButton fx:id="imageN" layoutX="640.0" layoutY="617.0" onAction="#PrendreImage" style="-fx-background-color: #f8521b;" text="Prendre une image" textFill="#dddddd" />
+      <Label layoutX="850.0" layoutY="95.0" text="Salaire" />
+      <Label layoutX="850.0" layoutY="169.0" text="Nb heures" />
+      <Label layoutX="850.0" layoutY="274.0" text="Date de naissance" />
+      <JFXDatePicker fx:id="date" defaultColor="#4059a9" layoutX="850.0" layoutY="311.0" style="-fx-background-color: #f8521b;" />
+      <JFXButton fx:id="Ajouter" layoutX="906.0" layoutY="617.0" onAction="#Ajouter" style="-fx-background-color: #f8521b;" text="Modifier" textFill="WHITE" />
+      <ComboBox fx:id="type" disable="true" layoutX="850.0" layoutY="409.0" prefHeight="31.0" prefWidth="206.0" style="-fx-background-color: #f8521b;" />
+      <Label layoutX="846.0" layoutY="367.0" text="Type" />
+      <Label fx:id="salaire" layoutX="958.0" layoutY="90.0" />
+      <Label fx:id="heure" layoutX="958.0" layoutY="169.0" />
+      <JFXTextField fx:id="username" disable="true" focusColor="#f8521b" layoutX="508.0" layoutY="32.0" prefHeight="31.0" prefWidth="266.0" promptText="Username" style="-fx-text-fill: #ffffff;" />
+      <Label layoutX="284.0" layoutY="37.0" text="Username" />
+   </children>
+</AnchorPane>

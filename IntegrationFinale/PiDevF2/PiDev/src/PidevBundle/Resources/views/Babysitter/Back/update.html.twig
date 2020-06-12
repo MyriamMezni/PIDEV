@@ -1,0 +1,120 @@
+{% extends 'back.html.twig' %}
+
+
+
+
+{% block content %}
+    <h1 xmlns="http://www.w3.org/1999/html">gestion babysitter</h1>
+
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <div class="card" style="position: relative; height: 400px;width: 800px; margin-left: 102px;">
+        <div class="card-header">
+            <i class="fa fa-align-justify"></i>  modifier Babysitter
+        </div>
+        <div class="card-body table-responsive p-0" style="margin-left: 200px">
+            <div classe="formulaire_ajout">
+                <div class="col-sm-9 col-sm-offset-2 col-lg-10 col-lg-offset-2 main">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+
+                                <div class="panel-body">
+                                    <div class="col-md-4">
+
+
+
+
+                                        <center>
+                                            <form method="POST">
+                                                {{  form_start(form) }}
+                                                <div class="row mb-1" style="width: 400px">
+                                                    <div class="col">
+                                                        <label for="heuredebut">heuredebut</label>
+                                                        {{ form_widget(form.heuredebut,{'attr':{'class':'form-control','placeholder':'nom','style':"width: 200px;"} } ) }} </div>
+                                                    <div class="col">
+                                                        <label for="heurefin">heurefin</label>
+                                                        {{ form_widget(form.heurefin,{'attr':{'class':'form-control','placeholder':'prenom','style':"width: 170px;"} } ) }}  </div>
+                                                </div>
+
+                                                <div class="row mb-3" style="width: 400px">
+                                                    <div class="col">
+                                                        <label for="joursemaine">joursemaine</label>
+                                                        <INPUT type="checkbox" name="trame[]" value="lundi" {% if babysitter.joursemaine|slice(0, 5)=="lundi" %} checked="true" {% endif %}/> lundi </br>
+                                                        <INPUT type="checkbox" name="trame[]" value="mardi"{% if "mardi" in babysitter.joursemaine %} checked="true"  {% endif %}/> mardi
+                                                        <INPUT type="checkbox" name="trame[]" value="mercredi" {% if "mercredi" in babysitter.joursemaine %} checked="true"  {% endif %}/> mercredi
+                                                        <INPUT type="checkbox" name="trame[]" value="jeudi" {% if "jeudi" in babysitter.joursemaine %} checked="true"  {% endif %}/> jeudi
+                                                        <INPUT type="checkbox" name="trame[]" value="vendredi" {% if "vendredi" in babysitter.joursemaine %} checked="true"  {% endif %}/>vendredi
+
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="prixheure">prixheure</label>
+                                                        {{ form_widget(form.prixheure,{'attr':{'class':'form-control','style':"width: 150px;"} } ) }}  </div>
+                                                </div>
+                                                </br>
+                                                <div class="row mb-3" style="width: 400px">
+                                                    <div class="col">
+                                                        <label for="idEnfant">idEnfant</label>
+                                                        {{ form_widget(form.idEnfant,{'attr':{'class':'form-control','style':"width: 200px;"} } ) }} </div>
+                                                    <div class="col">
+                                                        <label for="idbabysitter">idbabysitter</label>
+                                                        {{ form_widget(form.idbabysitter,{'attr':{'class':'form-control'} } ) }}  </div>
+                                                </div>
+
+
+                                                </br>
+                                                <div class="row mb-3">
+                                                    {{ form_widget(form.modifier, { 'label': 'modifier','attr':{'class':'btn btn-info','label':'ajout'} } ) }}
+
+
+                                                </div>
+
+                                                {{ form_end(form) }}
+
+                                            </form>
+                                        </center>
+
+                                    </div>
+
+
+                                </div>
+
+
+                                </form>
+
+                                <br>
+
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div><!--/.main-->
+        </div>
+    </div>
+
+    </div>
+
+
+
+
+
+
+    </div>
+
+    </div>
+
+
+
+
+
+
+
+
+{% endblock %}

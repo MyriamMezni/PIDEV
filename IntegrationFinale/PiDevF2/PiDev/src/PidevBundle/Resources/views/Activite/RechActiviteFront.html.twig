@@ -1,0 +1,110 @@
+
+
+
+
+
+
+
+
+
+
+
+
+{% extends "Front.html.twig" %}
+
+{% block content %}
+
+
+
+    <div class="site-section py-5 bg-warning">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 d-flex">
+                    <h2 class="text-white m-0">Voir les statistiques des activités</h2>
+                    <a href="{{ path('chart') }}" class="btn btn-primary btn-custom-1 py-3 px-5 ml-auto">Cliquer içi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="site-section bg-teal">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5 section-2-title">
+                <div class="col-md-6">
+                    <span class="text-white m-0">Les excursions</span>
+                    <h3 class="text-white m-0">Les activités</h3>
+                    <p class="mb-5">Découvrir nos activités</p>
+                    {{  form_start(form) }}
+RECHERCHE
+                    {{ form_widget(form.intitule,{'attr':{'class':'form-control'} } ) }}
+                    {{ form_widget(form.submit,{'attr':{'class':'btn btn-primary btn-custom-1 mt-4'} } ) }}
+
+                    {{ form_end(form) }}
+                </div>
+
+                <p><a href="{{ path('TriIntitule') }}" class="btn btn-primary btn-custom-1 mt-4">Tri par Intitule</a></p>
+                <p><a href="{{ path('TriHeure') }}" class="btn btn-warning btn-custom-1 mt-4">Tri par Heure </a></p>
+                <p><a href="{{ path('TriResponsable') }}" class="btn btn-success btn-custom-1 mt-4">Tri par Age</a></p>
+            </div>
+
+            <div class="row align-items-stretch">
+
+                {% for a in Activites%}
+                    <div class="col-lg-4 col-md-6 mb-5">
+
+                        <div class="post-entry-1 h-100 person-1 teal">
+
+
+                            <div class="post-entry-1-contents">
+                                <span class="text-teal">Intitule</span>
+                                <t5 class="d-block text-black">{{ a.Intitule }}</t5>
+
+                                <t5>{{ barcode({code: a.Intitule, type: 'qrcode', format: 'html'}) }}</t5>
+        <t5><a href="{{ path('MoreInformationActivite',{'intitule':a.Intitule}) }}" class="btn btn-primary btn-custom-1 mt-4">
+                plus d'information?
+            </a></p>
+        </t5>
+             <t5>
+                 <a href="{{ path('RatingActiviteFront',{'intitule':a.Intitule}) }}" class="btn btn-primary btn-custom-1 mt-4">Noter l'activité</a></p>
+             </t5>
+                                       </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "Front.html.twig" %}
+{% block cover %}
+    url('{{ asset('front/images/hero_5.jpg') }}')
+{% endblock %}
+{% block content %}
+    {{ form_start(form) }}
+    <div class="form-group">
+        {{ form_widget(form.idEnfant,{'attr':{'class':'form-control'}}) }}
+    </div>
+    {{ form_widget(form.Valider,{'attr':{'class':'btn btn-primary'}}) }}
+    {{ form_end(form) }}
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Commandes</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Lundi</th>
+                    <th>Mardi</th>
+                    <th>Mercredi</th>
+                    <th>Jeudi</th>
+                    <th>Vendredi</th>
+                    <th>Samedi</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    {% for m in menus %}
+                        <td align="center">
+                            {% if m is not null %}
+                                <div class="grid" >
+                                    <figure class="effect-lily" style="min-width: 154px;width: 154px;">
+                                        <img src="{{ asset("Images/"~m.image) }}" alt="img1" style="width: 200px;height: 140px;"/>
+                                        <figcaption>
+                                            <div>
+                                                <h2 class="text-white" style="font-size:0.7vw"><span>{{ m.nom }}</span></h2>
+                                                <p style="font-size:0.7vw">{{ m.description }}</p>
+                                            </div>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                    {% endfor %}
+                </tr>
+                </tbody>
+            </table>
+        </div>
+{% endblock %}

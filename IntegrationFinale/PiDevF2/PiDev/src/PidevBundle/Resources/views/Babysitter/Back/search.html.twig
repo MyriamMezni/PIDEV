@@ -1,0 +1,266 @@
+{% extends 'back.html.twig' %}
+
+
+
+{% block content %}
+
+
+    <div class="card">
+        <div class="card-header">
+            <i class="fa fa-align-justify"></i>  Affiche babysitters
+        </div>
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <h1>Recherhce Babysitter</h1>
+
+        <div classe="formulaire_ajout">
+            <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+
+                            <div class="panel-body">
+                                <div class="col-md-6">
+                                    {{ form_start(form) }}
+
+
+
+                                    <div class="form-group">
+                                        <div class="col">
+                                            <label>OBJECT</label>
+                                            {{ form_widget(form.joursemaine) }}
+                                            {{ form_widget(form.idEnfant) }}
+
+                                            <input type="submit" class="btn btn-primary" value="Submit"/>
+                                        </div>
+                                    </div>
+
+                                    <br>
+
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div><!--/.main-->
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <table border="1" class="table table-condensed  dataTables_paginate table-hover table-striped ">
+        <tr>
+            <td>idBabysitter</td>
+            <td>heureDebut</td>
+            <td>heureFin</td>
+            <td>jourSemaine</td>
+            <td>prixHeure</td>
+            <td>enfant</td>
+            <td>action</td>
+
+        </tr>
+        {% for entity in babysitter %}
+            <tr>
+                <td>
+                    {{ entity.idBabysitter }}
+                </td>
+                <td>
+                    {{ entity.heureDebut | date("H:i")}}
+                </td>
+                <td>
+                    {{ entity.heureFin | date("H:i")}}
+                </td>
+                <td>
+                    {{ entity.jourSemaine}}
+                </td>
+                <td>
+                    {{ entity.prixHeure}}
+                </td>
+                <td>
+                    {{ entity.IdEnfant.nom}}
+                </td>
+                <td>
+                    <a href="{{ path('updateBabysitter',{'id':entity.idBabysitter.id }) }}" class="fas fa-edit prefix grey-text"> </a>
+                    <label for="click" style="color: red;"  class="fas fa-trash-alt"></label>
+
+                </td>
+
+            </tr>
+            <div  id=kk class="center">
+                <input type="checkbox" id="click">
+
+                <div class="content">
+                    <div class="header">
+                        <h2>Confirmation de l'ajout</h2>
+                        <label for="click" class="fas fa-times"></label>
+                    </div>
+                    <label for="click" class="fas fa-check"></label>
+                    <h4 class="s">Etes-vous sûr de vouloir supprimer cet élément ?</h4>
+                    <div class="line"></div>
+                    <label for="click" class="close-btn">Non</label>
+                    {% for entity in babysitter %}
+                        <a href="{{ path('DeleteBabysitter',{'id':entity.idBabysitter.id}) }}"><input class="tt" type="button" value="delete"></a>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </table>
+
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background: linear-gradient(#E0EAFC,#CFDEF3);
+            height: 100vh;
+            user-select: none;
+        }
+        .center,.content{
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translate(-50%, -20%);
+        }
+        #click{
+            display: none;
+        }
+        .kk{
+            position: absolute;
+            display: block;
+            width: 60px;
+            height: 40px;
+            background: #27ae60;
+            border: 1px solid #26a65b;
+            color: white;
+            text-align: center;
+            font-size: 22px;
+            line-height: 50px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: .5s;
+        }
+        .click-me:hover{
+            background: #219150;
+        }
+        .content{
+            opacity: 0;
+            visibility: hidden;
+            width: 400px;
+            height: 350px;
+            background: white;
+            border-radius: 3px;
+            transition: .3s ease-in;
+            box-shadow: 0 2px 12px 0 rgba(0,0,0,.4);
+        }
+        #click:checked ~ .content{
+            opacity: 1;
+            visibility: visible;
+        }
+        .header{
+            height: 68px;
+            background: #27ae60;
+            overflow: hidden;
+            border-radius: 3px 3px 0 0;
+            box-shadow: 0 2px 3px 0 rgba(0,0,0,.2);
+        }
+        .header h2{
+            color: white;
+            padding-left: 32px;
+            font-weight: normal;
+        }
+        .fa-times{
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: #e8f7fc;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .fa-check{
+            font-size: 50px;
+            color: #27ae60;
+            font-weight: bold;
+            height: 80px;
+            width: 80px;
+            border: 2px solid #27ae60;
+            text-align: center;
+            padding-top: 13px;
+            border-radius: 50%;
+            box-sizing: border-box;
+            margin: 30px 0 0 160px;
+        }
+        p{
+            padding-top: 10px;
+            font-size: 19px;
+            color: white;
+            text-align: center;
+        }
+        s{
+            padding-top: 10px;
+            font-size: 19px;
+            color: black;
+            text-align: center;
+        }
+        .line{
+            position: absolute;
+            bottom: 65px;
+            width: 100%;
+            height: 1px;
+            background: silver;
+        }
+        .close-btn{
+            position: absolute;
+            bottom: 12px;
+            right: 25px;
+            border: 1px solid #27ae60;
+            border-radius: 3px;
+            color: #27ae60;
+            padding: 8px 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .tt{
+            position: absolute;
+            bottom: 20px;
+            right: 100px;
+            border: 1px solid #27ae60;
+            border-radius: 3px;
+            color: #27ae60;
+            padding: 8px 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .tt:hover{
+            background: #27ae60;
+            color: white;
+            transition: .5s;
+        }
+        .close-btn:hover{
+            background: #27ae60;
+            color: white;
+            transition: .5s;
+        }
+    </style>
+
+
+{% endblock %}

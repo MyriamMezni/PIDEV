@@ -1,0 +1,117 @@
+{% extends 'back.html.twig' %}
+
+
+
+
+{% block content %}
+    <h1 xmlns="http://www.w3.org/1999/html">gestion d'enfant</h1>
+
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <div class="card" style="position: relative; height: 400px;width: 800px; margin-left: 102px;">
+        <div class="card-header">
+            <i class="fa fa-align-justify"></i>  modifier Enfants
+        </div>
+        <div class="card-body table-responsive p-0" style="margin-left: 50px">
+            <div classe="formulaire_ajout">
+                <div class="col-sm-9 col-sm-offset-2 col-lg-10 col-lg-offset-2 main">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+
+                                <div class="panel-body">
+                                    <div class="col-md-4">
+
+
+
+                                        </br> </br> </br>
+                                        <center>
+                                            <form method="POST">
+                                                <table><tr><td>
+                                                            <label for="heuredebut">nom:</label>
+
+                                                        </td>
+                                                        <td><input type="text" name="nom" value="{{ enfant.nom}}"></td>
+                                                        <td>
+                                                            <label for="heurefin">prenom:</label>
+
+                                                        </td>
+                                                        <td><input type="text" name="prenom" value="{{ enfant.prenom}}"></td></tr>
+                                                    </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <tr><td>
+                                                            <label for="remarque">remarque:</label>
+
+                                                        </td>
+                                                        <td><input type="text" name="remarque" value="{{ enfant.remarque}}"></td>
+                                                        <td>
+                                                            <label for="cantine">cantine:</label>
+
+                                                        </td>
+                                                        <td><input type="text" name="cantine" value=" {% if enfant.cantine=='No' %}  0{% else %} 1 {% endif %}"></td>
+                                                    </tr>
+
+
+
+
+
+
+
+
+
+
+
+                                                </table> </br></br>
+
+                                                <button  href="{{ path('updateEnfant',{'id':enfant.idEnfant}) }}" type="submit" class="btn btn-primary">Submit</button>
+
+
+
+                                                    <a  href="{{ path('mailing',{'id':enfant.idEnfant}) }}" type="submit" class="btn btn-primary">mail</a>
+
+                                            </form>
+                                            <center>
+
+                                    </div>
+
+
+                                </div>
+
+
+                                </form>
+
+                                <br>
+
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div><!--/.main-->
+        </div>
+    </div>
+
+    </div>
+
+
+
+
+
+
+    </div>
+
+    </div>
+
+
+
+
+
+
+
+
+{% endblock %}

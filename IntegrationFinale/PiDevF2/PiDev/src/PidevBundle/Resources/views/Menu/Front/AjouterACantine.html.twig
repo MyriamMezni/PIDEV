@@ -1,0 +1,42 @@
+{% extends "Front.html.twig" %}
+{% block cover %}
+    url('{{ asset('front/images/hero_5.jpg') }}')
+{% endblock %}
+{% block content %}
+    {% if vide == 0 %}
+        {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_widget(form.idEnfant,{'attr':{'class':'form-control'}}) }}
+        </div>
+        {{ form_widget(form.Valider,{'attr':{'class':'btn btn-primary'}}) }}
+        {{ form_end(form) }}
+    {% elseif vide==1 %}
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="text-blue">Aucun enfant est disponible</h2>
+                </div>
+            </div>
+        </div>
+
+    {% else %}
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="text-blue">Aucune chaise n'est disponible</h2>
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+    <div class="site-section py-5 bg-warning">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 d-flex">
+                    <h2 class="text-white m-0">Consulter les menus commandés</h2>
+                    <a href="{{ path('AfficherCommandes') }}" class="btn btn-primary btn-custom-1 py-3 px-5 ml-auto">Consulter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
